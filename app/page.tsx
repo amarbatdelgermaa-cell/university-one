@@ -385,6 +385,34 @@ async function HomeContent() {
         </div>
       </section>
 
+      {/* Мандах зэрэг их сургуулиудын ашиглахад хялбар үйлчилгээний хэсгээс санаа авав. */}
+      <section className="bg-white px-5 py-20 md:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-9 flex flex-wrap items-end justify-between gap-5">
+            <div>
+              <p className="text-xs font-bold tracking-[.2em] text-[#B18446]">ХУРДАН ХОЛБООС</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#103553] md:text-4xl">Танд хэрэгтэй мэдээлэл</h2>
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600">Элсэгч, оюутан, багш, судлаачдад зориулсан мэдээллийг нэг дороос.</p>
+            </div>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {title:"Элсэгчдэд",text:"Элсэлтийн заавар, бүртгэл",href:"/admissions",image:"/admis.webp"},
+              {title:"Оюутнуудад",text:"Номын сан, суралцах орчин",href:"/library",image:"/library.webp"},
+              {title:"Судлаачдад",text:"Эрдэм шинжилгээ, судалгаа",href:"/research",image:"/research.webp"},
+              {title:"Тэнхимүүд",text:"Сургуулийн бүтэц, чиглэлүүд",href:"/schools",image:"/dep_5f8428aa3209d31ae019929a.webp"},
+            ].map(item=>(
+              <Link key={item.href} href={item.href} className="group overflow-hidden border border-slate-200 bg-white transition hover:-translate-y-1 hover:shadow-lg">
+                <div className="flex h-36 items-center justify-center overflow-hidden bg-[#E9F0F5] p-3">
+                  <img src={item.image} alt="" loading="lazy" className="h-full w-full object-contain transition duration-300 group-hover:scale-105"/>
+                </div>
+                <div className="p-6"><h3 className="text-lg font-bold text-[#103553]">{item.title}</h3><p className="mt-2 text-sm leading-6 text-slate-600">{item.text}</p><span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#103553]">Мэдээлэл үзэх <ArrowRight size={16}/></span></div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ====================================
           5. ТООН ҮЗҮҮЛЭЛТ — API 1
       ==================================== */}
