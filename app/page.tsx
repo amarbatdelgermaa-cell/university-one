@@ -204,34 +204,24 @@ async function HomeContent() {
   return (
     <main className="min-h-screen bg-white">
 
-      {/* Илүү цэвэрхэн editorial загвартай сургуулийн баннер */}
-      <section className="relative isolate min-h-[520px] overflow-hidden bg-[#0B294B] text-white lg:min-h-[600px]">
-        <div className="absolute inset-0 -z-20 bg-[url('/school-banner.png')] bg-cover bg-[center_45%]" role="img" aria-label="Баруун бүсийн сургуулийн барилга" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#071F3D]/90 via-[#071F3D]/50 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 -z-10 h-28 bg-gradient-to-t from-[#071F3D]/45 to-transparent" />
-        <div className="mx-auto flex min-h-[520px] max-w-7xl items-center px-5 py-16 md:px-8 lg:min-h-[600px]">
-          <div className="max-w-[580px]">
-            <div className="mb-7 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#EAC47B]">
-              <span className="h-px w-10 bg-[#EAC47B]" /> МОНГОЛ УЛСЫН ИХ СУРГУУЛЬ
+      {/* Барилгын зураг дээр бичиг давхцуулахгүй: зураг ба мэдээлэл тусдаа. */}
+      <section aria-label="Сургуулийн танилцуулга" className="bg-white">
+        <div className="relative h-[280px] overflow-hidden bg-slate-100 sm:h-[410px] lg:h-[560px]">
+          <div className="absolute inset-0 bg-[url('/school-banner.png')] bg-cover bg-center" role="img" aria-label="Монгол Улсын Их Сургуулийн Баруун бүсийн сургуулийн барилга" />
+          <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-black/15 to-transparent" />
+        </div>
+        <div className="border-b border-slate-200 bg-[#F8FAFD]">
+          <div className="mx-auto flex max-w-7xl flex-col gap-7 px-5 py-10 md:px-8 lg:flex-row lg:items-end lg:justify-between lg:py-14">
+            <div className="max-w-2xl">
+              <p className="mb-3 flex items-center gap-3 text-xs font-bold tracking-[0.17em] text-[#B07B20]"><span className="h-px w-8 bg-[#B07B20]"/> МОНГОЛ УЛСЫН ИХ СУРГУУЛЬ</p>
+              <h1 className="text-3xl font-bold leading-tight tracking-tight text-[#123C69] sm:text-4xl lg:text-5xl">Баруун бүсийн сургууль</h1>
+              <p className="mt-4 max-w-xl text-base leading-7 text-slate-600">Сургалт, эрдэм шинжилгээ, мэдээ мэдээлэл болон оюутанд зориулсан үйлчилгээтэй танилцаарай.</p>
             </div>
-            <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-[1.14] tracking-tight">
-              Ирээдүйгээ<br/><span className="font-light">мэдлэгээр бүтээ.</span>
-            </h1>
-            <p className="mt-7 max-w-md text-base leading-8 text-white/85">
-              Баруун бүсийн сургууль — мэдлэг, судалгаа, хөгжлийн боломжийг нэг дор.
-            </p>
-            <div className="mt-9 flex flex-wrap items-center gap-5">
-              <Link href="/admissions" className="inline-flex items-center gap-3 rounded-md bg-[#E8B85A] px-6 py-3.5 text-sm font-semibold text-[#082A4C] transition hover:bg-[#F5CD7A]">
-                Элсэлтийн мэдээлэл <ArrowRight size={18}/>
-              </Link>
-              <Link href="/about" className="inline-flex items-center gap-2 border-b border-white/70 pb-1 text-sm font-medium text-white transition hover:border-[#E8B85A] hover:text-[#E8B85A]">
-                Сургуулийн тухай <ArrowRight size={16}/>
-              </Link>
+            <div className="flex shrink-0 flex-wrap gap-3">
+              <Link href="/admissions" className="inline-flex items-center gap-2 rounded-md bg-[#123C69] px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-[#0A5A9D]">Элсэлтийн мэдээлэл <ArrowRight size={17}/></Link>
+              <Link href="/about" className="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white px-5 py-3.5 text-sm font-semibold text-[#123C69] transition hover:border-[#123C69]">Бидний тухай <ArrowRight size={17}/></Link>
             </div>
           </div>
-        </div>
-        <div className="absolute bottom-5 right-6 hidden items-center gap-2 text-xs font-medium tracking-wide text-white/90 md:flex">
-          <span className="h-px w-8 bg-white/70"/> Ховд • Монгол
         </div>
       </section>
 
