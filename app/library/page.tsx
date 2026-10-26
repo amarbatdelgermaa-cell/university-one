@@ -1,0 +1,6 @@
+import Link from "next/link";
+import { BookOpen, ExternalLink } from "lucide-react";
+export const metadata = { title: "Номын сан | МУИС-ийн Баруун бүсийн сургууль" };
+export default function LibraryPage() {
+return <main className="min-h-screen bg-slate-50"><section className="bg-[#07347C] px-5 py-14 text-white"><div className="mx-auto max-w-6xl"><h1 className="text-4xl font-bold">Номын сан</h1><p className="mt-4 text-blue-100">Номын сангийн мэдээлэл, цахим эх сурвалжийн танилцуулга.</p></div></section><section className="mx-auto max-w-6xl px-5 py-12"><div className="rounded-2xl border bg-white p-8"><BookOpen className="text-blue-800" size={38}/><h2 className="mt-4 text-xl font-bold text-[#07347C]">Номын сангийн үйлчилгээ</h2><p className="mt-3 text-slate-600">Номын сангийн ажиллах цаг, каталог болон албан ёсны холбоосыг баталгаажуулсны дараа байршуулна.</p><Link href="/news" className="mt-6 inline-flex items-center gap-2 font-semibold text-blue-700">Мэдээ мэдээлэл <ExternalLink size={16}/></Link></div></section></main>;
+}
