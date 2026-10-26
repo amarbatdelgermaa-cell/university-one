@@ -1,3 +1,4 @@
+import { connection } from "next/server";
 import Link from "next/link";
 import { Suspense } from "react";
 import { Search } from "lucide-react";
@@ -9,6 +10,7 @@ type Props = { searchParams: Promise<{q?: string}> };
 
 // Хайлтын үгтэй таарах мэдээг 5 API-ийн одоо ашиглаж буй мэдээний эх сурвалжаас хайна.
 async function Results({searchParams}:Props) {
+  await connection();
   const {q=""} = await searchParams;
   const keyword=q.trim().toLocaleLowerCase("mn");
   let news: News[]=[]; let error="";
