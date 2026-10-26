@@ -9,8 +9,8 @@ import Footer from "@/components/layout/Footer";
 
 // Browser-ийн tab дээр харагдах нэр
 export const metadata: Metadata = {
-  title: "UNIVERSITY ONE",
-  description: "Их сургуулийн мэдээллийн портал",
+  title: "МУИС-ийн Баруун бүсийн сургууль | Оюутны төсөл",
+  description: "МУИС-ийн Баруун бүсийн сургуулийн мэдээ, сургалт, судалгааны мэдээллийн портал — оюутны бие даалтын төсөл",
 };
 
 // Энэ нь вебийн бүх хуудсыг нэгтгэдэг хэсэг.
