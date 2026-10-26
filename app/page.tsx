@@ -204,22 +204,22 @@ async function HomeContent() {
   return (
     <main className="min-h-screen bg-white">
 
-      {/* Барилгын зураг дээр бичиг давхцуулахгүй: зураг ба мэдээлэл тусдаа. */}
-      <section aria-label="Сургуулийн танилцуулга" className="bg-white">
-        <div className="relative h-[280px] overflow-hidden bg-slate-100 sm:h-[410px] lg:h-[560px]">
-          <div className="absolute inset-0 bg-[url('/school-banner.png')] bg-cover bg-center" role="img" aria-label="Монгол Улсын Их Сургуулийн Баруун бүсийн сургуулийн барилга" />
-          <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-black/15 to-transparent" />
+      {/* Олон улсын их сургуулийн хэв маяг: зураг ба гарчиг тусдаа */}
+      <section className="bg-[#F8F7F4]">
+        <div className="relative h-[280px] overflow-hidden bg-[#DFE7EB] sm:h-[430px] lg:h-[590px]">
+          <div className="absolute inset-0 bg-[url('/school-banner.png')] bg-cover bg-center" role="img" aria-label="МУИС-ийн Баруун бүсийн сургуулийн барилга" />
+          <div className="absolute bottom-0 left-0 bg-[#0D3154]/90 px-5 py-3 text-[11px] font-semibold tracking-widest text-white sm:left-8 sm:px-7">МУИС • БАРУУН БҮСИЙН СУРГУУЛЬ</div>
         </div>
-        <div className="border-b border-slate-200 bg-[#F8FAFD]">
-          <div className="mx-auto flex max-w-7xl flex-col gap-7 px-5 py-10 md:px-8 lg:flex-row lg:items-end lg:justify-between lg:py-14">
-            <div className="max-w-2xl">
-              <p className="mb-3 flex items-center gap-3 text-xs font-bold tracking-[0.17em] text-[#B07B20]"><span className="h-px w-8 bg-[#B07B20]"/> МОНГОЛ УЛСЫН ИХ СУРГУУЛЬ</p>
-              <h1 className="text-3xl font-bold leading-tight tracking-tight text-[#123C69] sm:text-4xl lg:text-5xl">Баруун бүсийн сургууль</h1>
-              <p className="mt-4 max-w-xl text-base leading-7 text-slate-600">Сургалт, эрдэм шинжилгээ, мэдээ мэдээлэл болон оюутанд зориулсан үйлчилгээтэй танилцаарай.</p>
-            </div>
-            <div className="flex shrink-0 flex-wrap gap-3">
-              <Link href="/admissions" className="inline-flex items-center gap-2 rounded-md bg-[#123C69] px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-[#0A5A9D]">Элсэлтийн мэдээлэл <ArrowRight size={17}/></Link>
-              <Link href="/about" className="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white px-5 py-3.5 text-sm font-semibold text-[#123C69] transition hover:border-[#123C69]">Бидний тухай <ArrowRight size={17}/></Link>
+        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-14 md:px-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-end lg:gap-16 lg:py-20">
+          <div>
+            <p className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-[#A67B3E]">МЭДЛЭГ • СУДАЛГАА • ИРЭЭДҮЙ</p>
+            <h1 className="max-w-3xl text-[clamp(2.5rem,5.2vw,5rem)] font-semibold leading-[1.12] tracking-tight text-[#102F4F]">Боломжоо нээ.<br/><span className="font-normal text-[#53718D]">Ирээдүйгээ бүтээ.</span></h1>
+          </div>
+          <div className="lg:pb-2">
+            <p className="max-w-md text-base leading-8 text-slate-600">МУИС-ийн Баруун бүсийн сургуулийн сургалт, судалгаа, оюутны амьдрал болон шинэ мэдээтэй нэг дор танилцаарай.</p>
+            <div className="mt-7 flex flex-wrap items-center gap-5">
+              <Link href="/admissions" className="inline-flex items-center gap-2 rounded-md bg-[#103B69] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#175284]">Элсэлтийн мэдээлэл <ArrowRight size={17}/></Link>
+              <Link href="/about" className="inline-flex items-center gap-2 border-b border-[#A67B3E] pb-1 text-sm font-semibold text-[#103B69]">Сургуулийн тухай <ArrowRight size={16}/></Link>
             </div>
           </div>
         </div>
@@ -228,8 +228,8 @@ async function HomeContent() {
       {/* ====================================
           3. ДӨРВӨН ӨНГӨЛӨГ КАРТ
       ==================================== */}
-      <section className="relative z-20 mx-auto max-w-7xl px-5 py-14 md:px-8">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="relative z-20 mx-auto max-w-7xl px-5 py-16 md:px-8 lg:py-20">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
 
           {quickLinks.map((item) => {
             const Icon = item.icon;
@@ -238,16 +238,16 @@ async function HomeContent() {
               <Link
                 key={item.title}
                 href={item.href}
-                className="group flex min-h-[160px] gap-4 rounded-xl border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#E8B85A] hover:shadow-lg"
+                className="group flex min-h-[172px] gap-4 border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#CDA45D] hover:shadow-lg"
               >
                 <div
-                  className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl text-white ${item.color}`}
+                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg text-white ${item.color}`}
                 >
                   <Icon size={30} />
                 </div>
 
                 <div className="flex min-w-0 flex-1 flex-col">
-                  <h2 className="text-lg font-extrabold text-[#07347C]">
+                  <h2 className="text-lg font-bold text-[#103B69]">
                     {item.title}
                   </h2>
 
@@ -257,7 +257,7 @@ async function HomeContent() {
 
                   <ArrowRight
                     size={21}
-                    className="mt-auto self-end text-[#087BFA] transition group-hover:translate-x-1"
+                    className="mt-auto self-end text-[#B18446] transition group-hover:translate-x-1"
                   />
                 </div>
               </Link>
@@ -270,7 +270,7 @@ async function HomeContent() {
       {/* ====================================
           4. ОНЦЛОХ МЭДЭЭ — API 2, API 4
       ==================================== */}
-      <section className="mx-auto max-w-7xl px-5 pb-20 md:px-8">
+      <section className="mx-auto max-w-7xl px-5 pb-24 md:px-8">
         <div className="mb-7 flex flex-wrap items-center justify-between gap-4">
 
           <div>
@@ -298,10 +298,10 @@ async function HomeContent() {
               <Link
                 key={item._id}
                 href={`/news/${item._id}`}
-                className="group overflow-hidden rounded-2xl border border-blue-100 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                className="group overflow-hidden border border-slate-200 bg-white transition hover:-translate-y-1 hover:shadow-lg"
               >
                 {/* Мэдээний дээд хэсэг */}
-                <div className="flex h-36 items-center justify-center bg-gradient-to-br from-[#074293] to-[#1590E8]">
+                <div className="flex h-40 items-center justify-center bg-[#123D63]">
                   <Newspaper
                     size={54}
                     className="text-white/80"
@@ -367,7 +367,7 @@ async function HomeContent() {
       ==================================== */}
       <section
         id="statistics"
-        className="bg-[#F3F7FC] px-5 py-16 md:px-8"
+        className="bg-[#F7F8F8] px-5 py-20 md:px-8"
       >
         <div className="mx-auto max-w-7xl">
 
@@ -388,7 +388,7 @@ async function HomeContent() {
               return (
                 <div
                   key={item.label}
-                  className="rounded-2xl border border-blue-100 bg-white p-6 text-center shadow-sm"
+                  className="border border-slate-200 bg-white p-7 text-center"
                 >
                   <Icon
                     size={35}
