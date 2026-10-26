@@ -209,10 +209,10 @@ async function HomeContent() {
         <img src="/school-banner.png" alt="МУИС-ийн Баруун бүсийн сургуулийн барилга" className="absolute inset-0 -z-20 h-full w-full object-cover object-center"/>
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#061b2d]/95 via-[#061b2d]/70 to-[#061b2d]/20"/>
         <div className="absolute inset-x-0 bottom-0 -z-10 h-72 bg-gradient-to-t from-[#061b2d] to-transparent"/>
-        <div className="mx-auto flex min-h-[560px] max-w-7xl flex-col justify-center px-6 pb-24 pt-20 md:px-8 lg:min-h-[650px]">
+        <div className="mx-auto flex min-h-[560px] max-w-7xl flex-col justify-center px-6 pb-24 pt-20 md:px-8 lg:min-h-[590px]">
           <div className="max-w-2xl">
             <p className="text-xs font-black tracking-[.25em] text-[#f0bd65]">МУИС • БАРУУН БҮСИЙН СУРГУУЛЬ</p>
-            <h1 className="mt-6 text-[clamp(2.7rem,5.4vw,5.7rem)] font-black leading-[1.07] tracking-tight">Мэдлэгээр<br/><span className="text-[#f0bd65]">ирээдүйгээ бүтээ.</span></h1>
+            <h1 className="mt-6 text-[clamp(2.5rem,4.5vw,4.7rem)] font-extrabold leading-[1.12] tracking-tight">Мэдлэгээр<br/><span className="text-[#f0bd65]">ирээдүйгээ бүтээ.</span></h1>
             <p className="mt-6 max-w-lg text-base leading-8 text-white/85 md:text-lg">Суралцах, хөгжих, судлах боломжийг нэг дороос. Элсэлт, хөтөлбөр болон сургуулийн мэдээлэлтэй танилцаарай.</p>
             <div className="mt-8 flex flex-wrap gap-3"><Link href="/admissions" className="inline-flex items-center gap-2 rounded-xl bg-[#e5b75f] px-7 py-4 text-sm font-black text-[#082b46] shadow-lg shadow-black/20 transition hover:bg-white">ЭЛСЭЛТ <ArrowRight size={17}/></Link><Link href="/academics" className="inline-flex items-center gap-2 rounded-xl border border-white/35 bg-white/10 px-7 py-4 text-sm font-black text-white backdrop-blur-md transition hover:bg-white/20">СУРГАЛТЫН ХӨТӨЛБӨР <ArrowRight size={17}/></Link></div>
           </div>
@@ -223,15 +223,15 @@ async function HomeContent() {
           {title:"Сургалт",subtitle:"Хөтөлбөр, тэнхимүүд",href:"/academics",icon:BookOpen},
           {title:"Судалгаа",subtitle:"Эрдэм шинжилгээ",href:"/research",icon:FlaskConical},
           {title:"Номын сан",subtitle:"Оюутны үйлчилгээ",href:"/library",icon:Building2},
-        ].map(({title,subtitle,href,icon:Icon})=><Link key={href} href={href} className="group flex items-center gap-4 rounded-xl border border-[#b5dce7]/35 bg-[#0a354d]/75 p-5 shadow-xl backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-[#e5b75f] hover:bg-[#15506a]"><span className="rounded-xl border border-[#e5b75f]/30 bg-[#e5b75f]/10 p-3 text-[#e5b75f]"><Icon size={27}/></span><span className="min-w-0"><strong className="block text-lg font-black">{title}</strong><span className="mt-1 block text-xs text-white/70">{subtitle}</span></span><ArrowRight size={17} className="ml-auto shrink-0 text-[#e5b75f] transition group-hover:translate-x-1"/></Link>)}</div></div>
+        ].map(({title,subtitle,href,icon:Icon})=><Link key={href} href={href} className="group flex items-center gap-4 rounded-xl border border-[#b5dce7]/35 bg-[#0a354d]/75 p-5 shadow-xl backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-[#e5b75f] hover:bg-[#15506a]"><span className="rounded-xl border border-[#e5b75f]/30 bg-[#e5b75f]/10 p-3 text-[#e5b75f]"><Icon size={27}/></span><span className="min-w-0"><strong className="block text-base font-bold">{title}</strong><span className="mt-1 block text-xs text-white/70">{subtitle}</span></span><ArrowRight size={17} className="ml-auto shrink-0 text-[#e5b75f] transition group-hover:translate-x-1"/></Link>)}</div></div>
         <div className="border-t border-white/15 bg-[#061b2d]/85"><div className="mx-auto grid max-w-7xl grid-cols-2 gap-5 px-6 py-6 md:grid-cols-4 md:px-8">{statistics.map(item=>{const Icon=item.icon;return <div key={item.label} className="flex items-center gap-3"><Icon size={24} className="shrink-0 text-[#e5b75f]"/><div><strong className="block text-xl font-black text-white md:text-2xl">{item.value}</strong><span className="text-xs text-white/65">{item.label}</span></div></div>})}</div></div>
       </section>
 
       {/* Том зурагт үйлчилгээний картууд: үндсэн чиглэлүүд рүү шууд очно */}
-      <section className="relative z-10 bg-[#F4F6F8] px-5 py-20 md:px-8 lg:py-28">
+      <section className="relative z-10 bg-[#F4F6F8] px-5 py-16 md:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="mb-10 flex flex-wrap items-end justify-between gap-5">
-            <div><p className="text-xs font-extrabold tracking-[0.25em] text-[#B17A26]">ТАНЫ БОЛОМЖ ЭНДЭЭС ЭХЭЛНЭ</p><h2 className="mt-4 text-4xl font-black tracking-tight text-[#092B4B] md:text-6xl">Өөрийн замаа сонго.</h2></div>
+            <div><p className="text-xs font-extrabold tracking-[0.25em] text-[#B17A26]">ТАНЫ БОЛОМЖ ЭНДЭЭС ЭХЭЛНЭ</p><h2 className="mt-4 text-3xl font-extrabold tracking-tight text-[#092B4B] md:text-5xl">Өөрийн замаа сонго.</h2></div>
             <p className="max-w-sm text-base leading-8 text-slate-600">Элсэлт, сургалт, судалгаа, оюутны амьдралын мэдээлэлд хурдан хүрээрэй.</p>
           </div>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -241,11 +241,11 @@ async function HomeContent() {
               {title:"Судалгаа",description:"Эрдэм шинжилгээ, шинэ санаа",href:"/research",image:"/research.webp",number:"03"},
               {title:"Оюутны амьдрал",description:"Номын сан, сургуулийн орчин",href:"/library",image:"/library.webp",number:"04"},
             ].map((item)=>(
-              <Link key={item.href} href={item.href} className="group relative flex min-h-[390px] flex-col justify-between overflow-hidden rounded-2xl bg-[#0C3454] p-7 text-white shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <Link key={item.href} href={item.href} className="group relative flex min-h-[330px] flex-col justify-between overflow-hidden rounded-2xl bg-[#0C3454] p-7 text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
                 <img src={item.image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#071E35] via-[#071E35]/45 to-[#071E35]/10" />
                 <div className="relative flex items-start justify-between"><span className="text-sm font-bold tracking-widest text-white/80">{item.number} / 04</span><span className="rounded-full border border-white/40 bg-white/10 p-3 backdrop-blur-sm transition group-hover:bg-[#F3B64D] group-hover:text-[#092745]"><ArrowRight size={20}/></span></div>
-                <div className="relative"><h3 className="text-3xl font-black tracking-tight">{item.title}</h3><p className="mt-3 text-sm leading-6 text-white/80">{item.description}</p><div className="mt-6 h-1 w-12 rounded-full bg-[#F3B64D] transition-all group-hover:w-full"/></div>
+                <div className="relative"><h3 className="text-2xl font-bold tracking-tight">{item.title}</h3><p className="mt-3 text-sm leading-6 text-white/80">{item.description}</p><div className="mt-6 h-1 w-12 rounded-full bg-[#F3B64D] transition-all group-hover:w-full"/></div>
               </Link>
             ))}
           </div>
@@ -253,12 +253,12 @@ async function HomeContent() {
       </section>
 
       {/* Онцлох мэдээ: бодит API мэдээг илүү цэгцтэй картуудаар үзүүлнэ. */}
-      <section className="bg-white px-5 py-20 md:px-8 lg:py-28">
+      <section className="bg-white px-5 py-16 md:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
             <div>
               <p className="text-xs font-extrabold tracking-[.24em] text-[#B17A26]">МЭДЭЭ • ҮЙЛ ЯВДАЛ</p>
-              <h2 className="mt-3 text-4xl font-black tracking-tight text-[#092B4B] md:text-5xl">Онцлох мэдээ</h2>
+              <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#092B4B] md:text-4xl">Онцлох мэдээ</h2>
               <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600">Сургуулийн шинэ мэдээ, үйл ажиллагааны мэдээллийг нэг дороос.</p>
             </div>
             <Link href="/news" className="inline-flex items-center gap-3 rounded-full border border-[#0B3456]/20 px-6 py-3 text-sm font-bold text-[#0B3456] transition hover:border-[#0B3456] hover:bg-[#F1F5F9]">Бүх мэдээг үзэх <ArrowRight size={18}/></Link>
@@ -294,10 +294,10 @@ async function HomeContent() {
       </section>
 
       {/* Бодит сургуулийн зургууд: эхний зургийг онцолж, дараагийн хоёрыг хажууд нь байрлуулна. */}
-      <section className="bg-[#F3F6F8] px-5 py-20 md:px-8 lg:py-28">
+      <section className="bg-[#F3F6F8] px-5 py-16 md:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="mb-10 flex flex-wrap items-end justify-between gap-5">
-            <div><p className="text-xs font-extrabold tracking-[.24em] text-[#B17A26]">МАНАЙ ОРЧИН</p><h2 className="mt-3 text-4xl font-black tracking-tight text-[#092B4B] md:text-5xl">Сургуулийн амьдрал</h2><p className="mt-4 text-sm leading-7 text-slate-600">Сургуулийн орчин, хамт олны бодит гэрэл зургууд.</p></div>
+            <div><p className="text-xs font-extrabold tracking-[.24em] text-[#B17A26]">МАНАЙ ОРЧИН</p><h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#092B4B] md:text-4xl">Сургуулийн амьдрал</h2><p className="mt-4 text-sm leading-7 text-slate-600">Сургуулийн орчин, хамт олны бодит гэрэл зургууд.</p></div>
             <Link href="/about" className="inline-flex items-center gap-2 text-sm font-bold text-[#0B3456] hover:text-[#B17A26]">Сургуулийн тухай <ArrowRight size={17}/></Link>
           </div>
           <div className="grid gap-4 md:grid-cols-2 md:grid-rows-2">
@@ -321,7 +321,7 @@ async function HomeContent() {
       ==================================== */}
       <section
         id="statistics"
-        className="bg-[#F7F8F8] px-5 py-20 md:px-8"
+        className="bg-[#F7F8F8] px-5 py-16 md:px-8"
       >
         <div className="mx-auto max-w-7xl">
 
