@@ -207,7 +207,7 @@ async function HomeContent() {
       {/* Хоёр баганатай нүүр: зүүнд бичиг, баруунд тусдаа тод зураг */}
       <section className="relative overflow-hidden bg-[#062749] text-white">
         <div className="grid min-h-[620px] lg:min-h-[690px] lg:grid-cols-[43%_57%]">
-          <div className="relative z-10 flex flex-col justify-center bg-[#062749] px-6 pb-12 pt-16 sm:px-10 lg:pb-36 lg:pl-[max(3rem,calc((100vw-1280px)/2))] lg:pr-8 lg:pt-20">
+          <div className="relative z-10 flex flex-col justify-center px-6 pb-12 pt-16 sm:px-10 lg:pb-36 lg:pl-[max(3rem,calc((100vw-1280px)/2))] lg:pr-8 lg:pt-20">
             <p className="mb-7 text-xs font-extrabold tracking-[.22em] text-[#F4B84E]">МЭДЛЭГ • СУДАЛГАА • ИРЭЭДҮЙ</p>
             <h1 className="text-[clamp(2.8rem,4.5vw,5rem)] font-extrabold leading-[1.1] tracking-tight">Мэдлэгээс<br/><span className="text-[#F4B84E]">ирээдүй рүү.</span></h1>
             <p className="mt-7 max-w-md text-base leading-8 text-white/90">Суралцах, хөгжих, судлах боломжийг нэг дороос. МУИС-ийн Баруун бүсийн сургуулийн өргөн боломжийг танилцаарай.</p>
@@ -216,9 +216,9 @@ async function HomeContent() {
               <Link href="/about" className="inline-flex items-center gap-3 rounded-full border border-white/50 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-white/15">Сургуулийн тухай <ArrowRight size={17}/></Link>
             </div>
           </div>
-          <div className="relative min-h-[300px] overflow-hidden lg:min-h-[690px]">
-            <img src="/school-banner.png" alt="МУИС-ийн Баруун бүсийн сургуулийн барилга" className="absolute inset-0 h-full w-full object-cover object-[center_45%]" />
-            <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-[38%] bg-gradient-to-r from-[#062749] via-[#062749]/65 to-transparent lg:block" />
+          <div className="relative min-h-[300px] lg:min-h-[690px]">
+            <img src="/school-banner.png" alt="МУИС-ийн Баруун бүсийн сургуулийн барилга" className="absolute inset-y-0 -left-[45%] h-full w-[145%] max-w-none object-cover object-[center_45%] [mask-image:linear-gradient(to_right,transparent_0%,black_48%)]" />
+            
           </div>
         </div>
         {/* Үзүүлэлтүүд: зургийн доор тусдаа байрлах тул давхарлахгүй */}
