@@ -204,35 +204,41 @@ async function HomeContent() {
   return (
     <main className="min-h-screen bg-white">
 
-      {/* Сургуулийн барилгын зурагтай үндсэн баннер */}
-      <section className="relative isolate flex min-h-[460px] items-center overflow-hidden bg-[#07347C] text-white sm:min-h-[540px] lg:min-h-[620px]">
-        <div className="absolute inset-0 -z-20 bg-[url('/school-banner.png')] bg-cover bg-center" role="img" aria-label="МУИС-ийн Баруун бүсийн сургуулийн барилга" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#07347C]/95 via-[#07347C]/75 to-[#07347C]/10" />
-        <div className="mx-auto w-full max-w-7xl px-5 py-20 md:px-8">
-          <div className="max-w-2xl">
-            <p className="mb-5 text-sm font-extrabold tracking-[0.2em] text-[#FFBE2E] sm:text-base">ШИНЭ ЭЛСЭЛТ</p>
-            <h1 className="text-4xl font-black leading-[1.15] tracking-tight sm:text-6xl lg:text-7xl">
-              ИРЭЭДҮЙГЭЭ <span className="block text-[#FFBE2E]">МЭДЛЭГЭЭР</span><span className="block text-[#FFBE2E]">БҮТЭЭ</span>
+      {/* Илүү цэвэрхэн editorial загвартай сургуулийн баннер */}
+      <section className="relative isolate min-h-[520px] overflow-hidden bg-[#0B294B] text-white lg:min-h-[600px]">
+        <div className="absolute inset-0 -z-20 bg-[url('/school-banner.png')] bg-cover bg-[center_45%]" role="img" aria-label="Баруун бүсийн сургуулийн барилга" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#071F3D]/90 via-[#071F3D]/50 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-28 bg-gradient-to-t from-[#071F3D]/45 to-transparent" />
+        <div className="mx-auto flex min-h-[520px] max-w-7xl items-center px-5 py-16 md:px-8 lg:min-h-[600px]">
+          <div className="max-w-[580px]">
+            <div className="mb-7 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#EAC47B]">
+              <span className="h-px w-10 bg-[#EAC47B]" /> МОНГОЛ УЛСЫН ИХ СУРГУУЛЬ
+            </div>
+            <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-[1.14] tracking-tight">
+              Ирээдүйгээ<br/><span className="font-light">мэдлэгээр бүтээ.</span>
             </h1>
-            <p className="mt-7 max-w-xl text-base leading-8 text-blue-50 sm:text-lg">
-              Монгол Улсын Их Сургуулийн Баруун бүсийн сургууль таны шинэ боломж, мэдлэг, хөгжлийн аялалд урьж байна.
+            <p className="mt-7 max-w-md text-base leading-8 text-white/85">
+              Баруун бүсийн сургууль — мэдлэг, судалгаа, хөгжлийн боломжийг нэг дор.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/admissions" className="inline-flex items-center gap-3 rounded-lg bg-[#FFBE2E] px-7 py-4 font-extrabold text-[#07347C] transition hover:bg-amber-300">
-                ЭЛСЭЛТИЙН МЭДЭЭЛЭЛ ҮЗЭХ <ArrowRight size={20}/>
+            <div className="mt-9 flex flex-wrap items-center gap-5">
+              <Link href="/admissions" className="inline-flex items-center gap-3 rounded-md bg-[#E8B85A] px-6 py-3.5 text-sm font-semibold text-[#082A4C] transition hover:bg-[#F5CD7A]">
+                Элсэлтийн мэдээлэл <ArrowRight size={18}/>
               </Link>
-              <Link href="/about" className="inline-flex items-center gap-2 rounded-lg border border-white/70 px-6 py-4 font-bold text-white transition hover:bg-white/10">
-                СУРГУУЛИЙН ТУХАЙ <ArrowRight size={18}/>
+              <Link href="/about" className="inline-flex items-center gap-2 border-b border-white/70 pb-1 text-sm font-medium text-white transition hover:border-[#E8B85A] hover:text-[#E8B85A]">
+                Сургуулийн тухай <ArrowRight size={16}/>
               </Link>
             </div>
           </div>
+        </div>
+        <div className="absolute bottom-5 right-6 hidden items-center gap-2 text-xs font-medium tracking-wide text-white/90 md:flex">
+          <span className="h-px w-8 bg-white/70"/> Ховд • Монгол
         </div>
       </section>
 
       {/* ====================================
           3. ДӨРВӨН ӨНГӨЛӨГ КАРТ
       ==================================== */}
-      <section className="relative z-20 mx-auto max-w-7xl px-5 py-12 md:px-8">
+      <section className="relative z-20 mx-auto max-w-7xl px-5 py-14 md:px-8">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
 
           {quickLinks.map((item) => {
@@ -242,7 +248,7 @@ async function HomeContent() {
               <Link
                 key={item.title}
                 href={item.href}
-                className="group flex min-h-[170px] gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl"
+                className="group flex min-h-[160px] gap-4 rounded-xl border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#E8B85A] hover:shadow-lg"
               >
                 <div
                   className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl text-white ${item.color}`}
