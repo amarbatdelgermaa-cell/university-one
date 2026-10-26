@@ -204,27 +204,28 @@ async function HomeContent() {
   return (
     <main className="min-h-screen bg-white">
 
-      {/* Нүүр хэсэг: зүүнд бичиг, баруунд сургуулийн бодит зураг */}
-      <section className="relative isolate overflow-hidden bg-[#062749] text-white">
-        <div className="absolute inset-0 bg-[url('/school-banner.png')] bg-cover bg-center" role="img" aria-label="МУИС-ийн Баруун бүсийн сургуулийн барилга" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#062749] via-[#062749]/85 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#062749]/70 to-transparent" />
-        <div className="relative mx-auto flex min-h-[680px] max-w-7xl flex-col justify-center px-6 pb-40 pt-24 md:px-10 lg:min-h-[760px]">
-          <div className="max-w-[580px]">
-            <p className="mb-8 text-xs font-extrabold tracking-[.27em] text-[#F4B84E]">МЭДЛЭГ • СУДАЛГАА • ИРЭЭДҮЙ</p>
-            <h1 className="text-[clamp(3rem,5.2vw,5.7rem)] font-extrabold leading-[1.08] tracking-tight">Мэдлэгээс<br/><span className="text-[#F4B84E]">ирээдүй рүү.</span></h1>
-            <p className="mt-8 max-w-md text-base leading-8 text-white/90 md:text-lg">Суралцах, хөгжих, судлах боломжийг нэг дороос. МУИС-ийн Баруун бүсийн сургуулийн өргөн боломжийг танилцаарай.</p>
+      {/* Хоёр баганатай нүүр: зүүнд бичиг, баруунд тусдаа тод зураг */}
+      <section className="relative overflow-hidden bg-[#062749] text-white">
+        <div className="grid min-h-[620px] lg:min-h-[690px] lg:grid-cols-[43%_57%]">
+          <div className="relative z-10 flex flex-col justify-center bg-[#062749] px-6 pb-12 pt-16 sm:px-10 lg:pb-36 lg:pl-[max(3rem,calc((100vw-1280px)/2))] lg:pr-8 lg:pt-20">
+            <p className="mb-7 text-xs font-extrabold tracking-[.22em] text-[#F4B84E]">МЭДЛЭГ • СУДАЛГАА • ИРЭЭДҮЙ</p>
+            <h1 className="text-[clamp(2.8rem,4.5vw,5rem)] font-extrabold leading-[1.1] tracking-tight">Мэдлэгээс<br/><span className="text-[#F4B84E]">ирээдүй рүү.</span></h1>
+            <p className="mt-7 max-w-md text-base leading-8 text-white/90">Суралцах, хөгжих, судлах боломжийг нэг дороос. МУИС-ийн Баруун бүсийн сургуулийн өргөн боломжийг танилцаарай.</p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Link href="/admissions" className="inline-flex items-center gap-3 rounded-full bg-[#F4B84E] px-7 py-4 text-sm font-extrabold text-[#082D4D] transition hover:bg-white">Элсэлтийн мэдээлэл <ArrowRight size={18}/></Link>
-              <Link href="/about" className="inline-flex items-center gap-3 rounded-full border border-white/50 bg-white/10 px-7 py-4 text-sm font-bold text-white backdrop-blur-sm transition hover:bg-white/20">Сургуулийн тухай <ArrowRight size={18}/></Link>
+              <Link href="/admissions" className="inline-flex items-center gap-3 rounded-full bg-[#F4B84E] px-6 py-3.5 text-sm font-extrabold text-[#082D4D] transition hover:bg-white">Элсэлтийн мэдээлэл <ArrowRight size={17}/></Link>
+              <Link href="/about" className="inline-flex items-center gap-3 rounded-full border border-white/50 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-white/15">Сургуулийн тухай <ArrowRight size={17}/></Link>
             </div>
           </div>
+          <div className="relative min-h-[300px] overflow-hidden lg:min-h-[690px]">
+            <img src="/school-banner.png" alt="МУИС-ийн Баруун бүсийн сургуулийн барилга" className="absolute inset-0 h-full w-full object-cover object-[center_45%]" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-20 bg-gradient-to-r from-[#062749] to-transparent lg:block" />
+          </div>
         </div>
-        {/* API-аас ирсэн бодит тоон үзүүлэлт */}
-        <div className="absolute inset-x-0 bottom-5 z-10 mx-auto max-w-7xl px-5 md:bottom-8 md:px-10">
-          <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/20 bg-[#062749]/80 shadow-2xl backdrop-blur-xl lg:grid-cols-4">
+        {/* Үзүүлэлтүүд: зургийн доор тусдаа байрлах тул давхарлахгүй */}
+        <div className="relative z-20 mx-auto max-w-7xl px-5 pb-7 md:px-10 lg:-mt-24">
+          <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/20 bg-[#0B3456] shadow-2xl lg:grid-cols-4">
             {statistics.map((item) => {const Icon=item.icon;return (
-              <div key={item.label} className="flex items-center gap-3 bg-white/5 px-4 py-4 sm:px-6 sm:py-5"><span className="rounded-full bg-white/10 p-2.5 text-[#F4B84E]"><Icon size={23}/></span><div><strong className="block text-xl font-extrabold sm:text-2xl">{item.value}</strong><span className="text-[11px] text-white/80 sm:text-sm">{item.label}</span></div></div>
+              <div key={item.label} className="flex items-center gap-3 bg-white/5 px-4 py-5 sm:px-6"><span className="rounded-full bg-white/10 p-2.5 text-[#F4B84E]"><Icon size={23}/></span><div><strong className="block text-xl font-extrabold sm:text-2xl">{item.value}</strong><span className="text-[11px] text-white/80 sm:text-sm">{item.label}</span></div></div>
             );})}
           </div>
         </div>
