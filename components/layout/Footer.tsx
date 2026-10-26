@@ -107,7 +107,7 @@ export default function Footer() {
               aria-label="МУИС-ийн мэдээ"
               className="hover:text-[#D8A650]"
             >
-              <FaInstagram size={23} />
+              <Mail size={23} />
             </a>
 
             {/* Холбоо барих хуудас */}
