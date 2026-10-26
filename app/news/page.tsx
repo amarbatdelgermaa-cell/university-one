@@ -1,3 +1,4 @@
+import { connection } from "next/server";
 
 import { Suspense } from "react";
 import Link from "next/link";
@@ -26,6 +27,7 @@ type Props = {
 
 // API мэдээллийг авч харуулах хэсэг
 async function NewsContent({ searchParams }: Props) {
+  await connection();
   const params = await searchParams;
 
   let categories: Category[] = [];
