@@ -1,5 +1,6 @@
 
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import "./globals.css";
 
 // Бидний өмнө хийсэн 3 хэсгийг оруулж ирнэ.
@@ -27,7 +28,9 @@ export default function RootLayout({
         <Header />
 
         {/* Вебийн үндсэн цэс */}
-        <Navbar />
+        <Suspense fallback={<div className="h-[67px] bg-[#07347C]" />}>
+          <Navbar />
+        </Suspense>
 
         {/* Нүүр хуудасны агуулга */}
         <main className="min-h-[60vh]">
