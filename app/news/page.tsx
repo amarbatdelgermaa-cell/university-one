@@ -76,6 +76,15 @@ async function NewsContent({ searchParams }: Props) {
 
       <div className="mx-auto max-w-6xl px-6 py-10">
 
+        {/* Баруун бүсийн сургуулийн албан ёсны мэдээний эх сурвалж */}
+        <section className="mb-10 flex flex-col gap-5 rounded-xl border border-blue-100 bg-[#EAF1F8] p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+          <div>
+            <p className="text-xs font-bold tracking-widest text-[#A87520]">АЛБАН ЁСНЫ ЭХ СУРВАЛЖ</p>
+            <h2 className="mt-2 text-xl font-bold text-[#123C69]">Баруун бүсийн сургуулийн мэдээнүүд</h2>
+            <p className="mt-2 max-w-xl text-sm leading-6 text-slate-600">Сургуулийн албан ёсны веб дэх мэдээ, зарлал, үйл ажиллагааны нийтлэлүүдийг үзэх.</p>
+          </div>
+          <a href="http://khovd.num.edu.mn:5000/news" target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 items-center justify-center rounded-lg bg-[#123C69] px-5 py-3 font-semibold text-white transition hover:bg-[#1C5C98]">Албан ёсны мэдээ үзэх ↗</a>
+        </section>
         {/* МУИС-ийн албан ёсны сайтаас баталгаажсан нийтлэлүүд */}
         <section className="mb-12">
           <h2 className="mb-5 text-2xl font-bold text-[#123C69]">Баруун бүсийн сургуулийн онцлох мэдээ</h2>
