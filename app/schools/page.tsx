@@ -10,7 +10,7 @@ export const metadata = {
 const departments = [
   {
     name: "Математик, компьютерийн ухааны тэнхим",
-    image: "/departments/math.svg",
+    image: "/dep_5f8428aa3209d31ae019929a.webp",
     short: "Математик, программчлал, компьютерийн шинжлэх ухааны чиглэл",
     subjects: ["Математик", "Компьютерийн ухаан", "Программчлал"],
     detail: "Математик болон компьютерийн ухааны суурь мэдлэг, тооцоолол, алгоритм, мэдээллийн технологитой холбоотой сургалт, судалгааны чиглэлийг хамарна.",
@@ -98,7 +98,7 @@ export default function SchoolsPage() {
             <details key={item.name} className="group rounded-xl border border-slate-200 bg-white p-6 transition hover:border-blue-300 open:border-[#154E85] open:shadow-md">
               <summary className="cursor-pointer list-none">
                 {/* Тэнхим тус бүрийн зураг */}
-                <img src={item.image} alt={`${item.name} чиглэлийн дүрслэл`} className="mb-5 aspect-[16/9] w-full rounded-lg object-cover" loading="lazy" />
+                <img src={item.image} alt={index === 0 ? "Математик, мэдээлэл зүйн тэнхимийн хамт олны зураг" : `${item.name} чиглэлийн дүрслэл`} className="mb-5 aspect-[16/9] w-full rounded-lg object-cover" loading="lazy" />
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#EAF1F8] font-bold text-[#154E85]">
                     {String(index + 1).padStart(2, "0")}
@@ -124,6 +124,25 @@ export default function SchoolsPage() {
           ))}
         </div>
 
+        {/* Тэнхимийн бодит гэрэл зургуудыг нэртэй нь баталгаагүй тул тусдаа харуулна. */}
+        <section className="mt-14">
+          <p className="text-xs font-bold tracking-widest text-[#B07B20]">БОДИТ ГЭРЭЛ ЗУРГУУД</p>
+          <h2 className="mt-2 text-2xl font-bold text-[#123C69]">Тэнхим, багш хамт олны зургийн сан</h2>
+          <p className="mt-3 text-sm leading-7 text-slate-600">Албан ёсны сургуулийн сайтаас хадгалсан гэрэл зургууд. Зургийн нэрээс нь бусад тэнхимийг яг таг тогтоох боломжгүй тул буруу нэр холбож бичээгүй.</p>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              "dep_5f8428aa3209d31ae019929a.webp",
+              "dep_5f8428aa3209d31ae019929b.webp",
+              "dep_5f9a848b65b071188cb1a008.webp",
+              "dep_5f9a848b65b071188cb1a009.webp",
+              "dep_5f8428aa3209d31ae019929e.webp",
+            ].map((src,index) => (
+              <figure key={src} className="overflow-hidden bg-white border border-slate-200">
+                <img src={`/${src}`} alt={`Сургуулийн тэнхимийн зургийн сан, зураг ${index + 1}`} className="aspect-[16/10] w-full object-cover" loading="lazy" />
+              </figure>
+            ))}
+          </div>
+        </section>
         <div className="mt-10 rounded-xl border border-amber-200 bg-[#FFFCF5] p-6">
           <div className="flex items-start gap-3">
             <Info className="mt-1 shrink-0 text-[#A9761D]" size={21}/>
