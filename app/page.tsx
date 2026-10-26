@@ -205,13 +205,13 @@ async function HomeContent() {
     <main className="min-h-screen bg-white">
 
       {/* Шинэ нүүр: зураг дээр гарчиг байрлуулсан, өндөр нягтралтай hero */}
-      <section className="relative isolate min-h-[680px] overflow-hidden bg-[#071E35] text-white lg:min-h-[760px]">
+      <section className="relative isolate min-h-[620px] overflow-hidden bg-[#071E35] text-white lg:min-h-[690px]">
         <div className="absolute inset-0 bg-[url('/school-banner.png')] bg-cover bg-center" role="img" aria-label="МУИС-ийн Баруун бүсийн сургуулийн барилга" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#071E35]/95 via-[#071E35]/75 to-[#071E35]/10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#071E35]/85 via-transparent to-transparent" />
-        <div className="relative mx-auto flex min-h-[680px] max-w-7xl flex-col justify-center px-6 pb-36 pt-24 md:px-10 lg:min-h-[760px]">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#071E35]/80 via-[#071E35]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#071E35]/55 via-transparent to-transparent" />
+        <div className="relative mx-auto flex min-h-[620px] max-w-7xl flex-col justify-end px-6 pb-32 pt-24 md:px-10 lg:min-h-[690px]">
           <div className="mb-8 inline-flex w-fit items-center gap-3 rounded-full border border-white/25 bg-white/10 px-5 py-2.5 text-xs font-bold tracking-[0.18em] backdrop-blur-md"><span className="h-2 w-2 rounded-full bg-[#F3B64D]" /> МУИС • БАРУУН БҮСИЙН СУРГУУЛЬ</div>
-          <h1 className="max-w-4xl text-[clamp(3.5rem,7.5vw,7.5rem)] font-black leading-[1.02] tracking-tight">Мэдлэгээс<br/><span className="text-[#F3B64D]">ирээдүй рүү.</span></h1>
+          <h1 className="max-w-2xl text-[clamp(2.7rem,5vw,5rem)] font-extrabold leading-[1.12] tracking-tight">Мэдлэгээс<br/><span className="text-[#F3B64D]">ирээдүй рүү.</span></h1>
           <p className="mt-8 max-w-xl border-l-4 border-[#F3B64D] pl-6 text-base leading-8 text-white/85 md:text-lg">Суралцах, хөгжих, судлах боломжийг нэг дороос. МУИС-ийн Баруун бүсийн сургуулийн ертөнцтэй танилцаарай.</p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link href="/admissions" className="inline-flex items-center gap-3 rounded-full bg-[#F3B64D] px-8 py-4 text-sm font-extrabold text-[#092745] transition hover:bg-white">Элсэлттэй танилцах <ArrowRight size={18}/></Link>
