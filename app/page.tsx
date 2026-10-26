@@ -1,3 +1,4 @@
+import { connection } from "next/server";
 
 import { Suspense } from "react";
 import Link from "next/link";
@@ -52,6 +53,7 @@ type NewsItem = {
 
 // Нүүр хуудасны API мэдээллийг ачаалах
 async function HomeContent() {
+  await connection();
   let stats: Statistics | null = null;
   let season: SeasonInfo | null = null;
   let news: NewsItem[] = [];
