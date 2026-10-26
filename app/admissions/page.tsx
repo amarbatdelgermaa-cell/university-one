@@ -1,0 +1,6 @@
+import Link from "next/link";
+import { ArrowRight, GraduationCap } from "lucide-react";
+export const metadata = { title: "Элсэлт | МУИС-ийн Баруун бүсийн сургууль" };
+export default function AdmissionsPage() {
+return <main className="min-h-screen bg-slate-50"><section className="bg-[#07347C] px-5 py-14 text-white"><div className="mx-auto max-w-6xl"><h1 className="text-4xl font-bold">Элсэлт</h1><p className="mt-4 text-blue-100">Элсэгчдэд зориулсан мэдээлэл.</p></div></section><section className="mx-auto max-w-6xl px-5 py-12"><div className="rounded-2xl border bg-white p-8"><GraduationCap className="text-blue-800" size={38}/><h2 className="mt-4 text-xl font-bold text-[#07347C]">Элсэлтийн мэдээлэл</h2><p className="mt-3 leading-7 text-slate-600">Элсэлтийн хугацаа, шаардлага, бүртгэлийн мэдээллийг албан ёсны эх сурвалжаар баталгаажуулж байршуулна.</p><Link href="/contact" className="mt-6 inline-flex items-center gap-2 font-semibold text-blue-700">Холбоо барих <ArrowRight size={17}/></Link></div></section></main>;
+}
