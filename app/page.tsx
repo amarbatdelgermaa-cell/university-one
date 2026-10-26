@@ -374,7 +374,7 @@ async function HomeContent() {
             {[
               { src: "/grad-scaled-e1705378650270-1024x682.webp", label: "Төгсөлтийн зураг" },
               { src: "/alsiin.webp", label: "Сургуулийн зургийн сан" },
-              { src: "/admis.webp", label: "Элсэлттэй холбоотой зураг" }
+              { src: "/news_2026_10_19_173350.webp", label: "Сургуулийн хамт олон" }
             ].map((photo) => (
               <figure key={photo.src} className="overflow-hidden bg-white">
                 <img src={photo.src} alt={photo.label} loading="lazy" className="aspect-[4/3] w-full object-cover" />
