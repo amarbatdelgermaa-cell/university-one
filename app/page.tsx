@@ -204,31 +204,27 @@ async function HomeContent() {
   return (
     <main className="min-h-screen bg-white">
 
-      {/* Хоёр баганатай нүүр: зүүнд бичиг, баруунд тусдаа тод зураг */}
-      <section className="relative overflow-hidden bg-[#062749] text-white">
-        <div className="grid min-h-[620px] lg:min-h-[690px] lg:grid-cols-[43%_57%]">
-          <div className="relative z-10 flex flex-col justify-center bg-[#062749] px-6 pb-12 pt-16 sm:px-10 lg:pb-36 lg:pl-[max(3rem,calc((100vw-1280px)/2))] lg:pr-8 lg:pt-20">
-            <p className="mb-7 text-xs font-extrabold tracking-[.22em] text-[#F4B84E]">МЭДЛЭГ • СУДАЛГАА • ИРЭЭДҮЙ</p>
-            <h1 className="text-[clamp(2.8rem,4.5vw,5rem)] font-extrabold leading-[1.1] tracking-tight">Мэдлэгээс<br/><span className="text-[#F4B84E]">ирээдүй рүү.</span></h1>
-            <p className="mt-7 max-w-md text-base leading-8 text-white/90">Суралцах, хөгжих, судлах боломжийг нэг дороос. МУИС-ийн Баруун бүсийн сургуулийн өргөн боломжийг танилцаарай.</p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Link href="/admissions" className="inline-flex items-center gap-3 rounded-full bg-[#F4B84E] px-6 py-3.5 text-sm font-extrabold text-[#082D4D] transition hover:bg-white">Элсэлтийн мэдээлэл <ArrowRight size={17}/></Link>
-              <Link href="/about" className="inline-flex items-center gap-3 rounded-full border border-white/50 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-white/15">Сургуулийн тухай <ArrowRight size={17}/></Link>
-            </div>
-          </div>
-          <div className="relative min-h-[300px] overflow-hidden lg:min-h-[690px]">
-            <img src="/school-banner.png" alt="МУИС-ийн Баруун бүсийн сургуулийн барилга" className="absolute inset-0 h-full w-full object-cover object-[center_45%]" />
-            <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-[38%] bg-gradient-to-r from-[#062749] via-[#062749]/65 to-transparent lg:block" />
+      {/* Зурагт жишгийн дагуу: кампусын өргөн зураг, шилэн карт, элсэлтийн товч */}
+      <section className="relative isolate overflow-hidden bg-[#061b2d] text-white">
+        <img src="/school-banner.png" alt="МУИС-ийн Баруун бүсийн сургуулийн барилга" className="absolute inset-0 -z-20 h-full w-full object-cover object-center"/>
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#061b2d]/95 via-[#061b2d]/70 to-[#061b2d]/20"/>
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-72 bg-gradient-to-t from-[#061b2d] to-transparent"/>
+        <div className="mx-auto flex min-h-[560px] max-w-7xl flex-col justify-center px-6 pb-24 pt-20 md:px-8 lg:min-h-[650px]">
+          <div className="max-w-2xl">
+            <p className="text-xs font-black tracking-[.25em] text-[#f0bd65]">МУИС • БАРУУН БҮСИЙН СУРГУУЛЬ</p>
+            <h1 className="mt-6 text-[clamp(2.7rem,5.4vw,5.7rem)] font-black leading-[1.07] tracking-tight">Мэдлэгээр<br/><span className="text-[#f0bd65]">ирээдүйгээ бүтээ.</span></h1>
+            <p className="mt-6 max-w-lg text-base leading-8 text-white/85 md:text-lg">Суралцах, хөгжих, судлах боломжийг нэг дороос. Элсэлт, хөтөлбөр болон сургуулийн мэдээлэлтэй танилцаарай.</p>
+            <div className="mt-8 flex flex-wrap gap-3"><Link href="/admissions" className="inline-flex items-center gap-2 rounded-xl bg-[#e5b75f] px-7 py-4 text-sm font-black text-[#082b46] shadow-lg shadow-black/20 transition hover:bg-white">ЭЛСЭЛТ <ArrowRight size={17}/></Link><Link href="/academics" className="inline-flex items-center gap-2 rounded-xl border border-white/35 bg-white/10 px-7 py-4 text-sm font-black text-white backdrop-blur-md transition hover:bg-white/20">СУРГАЛТЫН ХӨТӨЛБӨР <ArrowRight size={17}/></Link></div>
           </div>
         </div>
-        {/* Үзүүлэлтүүд: зургийн доор тусдаа байрлах тул давхарлахгүй */}
-        <div className="relative z-20 mx-auto max-w-7xl px-5 pb-7 md:px-10 lg:-mt-24">
-          <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/20 bg-[#0B3456] shadow-2xl lg:grid-cols-4">
-            {statistics.map((item) => {const Icon=item.icon;return (
-              <div key={item.label} className="flex items-center gap-3 bg-white/5 px-4 py-5 sm:px-6"><span className="rounded-full bg-white/10 p-2.5 text-[#F4B84E]"><Icon size={23}/></span><div><strong className="block text-xl font-extrabold sm:text-2xl">{item.value}</strong><span className="text-[11px] text-white/80 sm:text-sm">{item.label}</span></div></div>
-            );})}
-          </div>
-        </div>
+        {/* Жишиг загварын 4 хурдан сонголт — бүгд бодит хуудсууд руу холбоно. */}
+        <div className="relative mx-auto -mt-14 max-w-7xl px-5 pb-10 md:px-8"><div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{[
+          {title:"Бакалавр",subtitle:"Элсэлтийн мэдээлэл",href:"/admissions",icon:GraduationCap},
+          {title:"Сургалт",subtitle:"Хөтөлбөр, тэнхимүүд",href:"/academics",icon:BookOpen},
+          {title:"Судалгаа",subtitle:"Эрдэм шинжилгээ",href:"/research",icon:FlaskConical},
+          {title:"Номын сан",subtitle:"Оюутны үйлчилгээ",href:"/library",icon:Building2},
+        ].map(({title,subtitle,href,icon:Icon})=><Link key={href} href={href} className="group flex items-center gap-4 rounded-xl border border-[#b5dce7]/35 bg-[#0a354d]/75 p-5 shadow-xl backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-[#e5b75f] hover:bg-[#15506a]"><span className="rounded-xl border border-[#e5b75f]/30 bg-[#e5b75f]/10 p-3 text-[#e5b75f]"><Icon size={27}/></span><span className="min-w-0"><strong className="block text-lg font-black">{title}</strong><span className="mt-1 block text-xs text-white/70">{subtitle}</span></span><ArrowRight size={17} className="ml-auto shrink-0 text-[#e5b75f] transition group-hover:translate-x-1"/></Link>)}</div></div>
+        <div className="border-t border-white/15 bg-[#061b2d]/85"><div className="mx-auto grid max-w-7xl grid-cols-2 gap-5 px-6 py-6 md:grid-cols-4 md:px-8">{statistics.map(item=>{const Icon=item.icon;return <div key={item.label} className="flex items-center gap-3"><Icon size={24} className="shrink-0 text-[#e5b75f]"/><div><strong className="block text-xl font-black text-white md:text-2xl">{item.value}</strong><span className="text-xs text-white/65">{item.label}</span></div></div>})}</div></div>
       </section>
 
       {/* Том зурагт үйлчилгээний картууд: үндсэн чиглэлүүд рүү шууд очно */}
