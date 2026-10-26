@@ -300,8 +300,10 @@ async function HomeContent() {
                 href={`/news/${item._id}`}
                 className="group overflow-hidden border border-slate-200 bg-white transition hover:-translate-y-1 hover:shadow-lg"
               >
-                {/* GitHub public хавтсанд байгаа бодит мэдээний зургууд */}
-                <img src={`/news_2026_10_19_${["172910","173020","173155"][news.findIndex(n => n._id === item._id) % 3]}.webp`} alt="Сургуулийн мэдээний гэрэл зураг" className="h-40 w-full object-cover" loading="lazy" />
+                {/* Мэдээнд зураг холбоогүй үед өөр нийтлэлийн зургийг буруу оноохгүй. */}
+                <div className="flex h-40 items-center justify-center bg-[#123D63]">
+                  <Newspaper size={54} className="text-white/80" />
+                </div>
 
                 <div className="p-6">
                   <div className="mb-3 flex items-center gap-2 text-xs text-slate-500">
@@ -355,6 +357,32 @@ async function HomeContent() {
             </Link>
           </div>
         )}
+      </section>
+
+      {/* public/ хавтсанд оруулсан бодит зурагт сан. Зургийг худал мэдээтэй холбохгүй. */}
+      <section className="bg-[#F6F8FA] px-5 py-20 md:px-8">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs font-bold tracking-[0.2em] text-[#A67B3E]">МАНАЙ ОРЧИН</p>
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-5">
+            <div>
+              <h2 className="mt-2 text-3xl font-semibold tracking-tight text-[#103B69] md:text-4xl">Сургуулийн амьдрал зургаар</h2>
+              <p className="mt-3 text-sm leading-7 text-slate-600">Сургуулийн сайтаас хадгалсан бодит гэрэл зургуудын цуглуулга.</p>
+            </div>
+            <Link href="/news" className="inline-flex items-center gap-2 border-b border-[#B18446] pb-1 text-sm font-bold text-[#103B69]">Мэдээ мэдээлэл <ArrowRight size={16}/></Link>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {[
+              { src: "/grad-scaled-e1705378650270-1024x682.webp", label: "Төгсөлтийн зураг" },
+              { src: "/alsiin.webp", label: "Сургуулийн зургийн сан" },
+              { src: "/admis.webp", label: "Элсэлттэй холбоотой зураг" }
+            ].map((photo) => (
+              <figure key={photo.src} className="overflow-hidden bg-white">
+                <img src={photo.src} alt={photo.label} loading="lazy" className="aspect-[4/3] w-full object-cover" />
+                <figcaption className="px-4 py-4 text-sm font-semibold text-[#103B69]">{photo.label}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ====================================
