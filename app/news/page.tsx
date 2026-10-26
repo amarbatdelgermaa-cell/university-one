@@ -85,6 +85,31 @@ async function NewsContent({ searchParams }: Props) {
           </div>
           <a href="http://khovd.num.edu.mn:5000/news" target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 items-center justify-center rounded-lg bg-[#123C69] px-5 py-3 font-semibold text-white transition hover:bg-[#1C5C98]">Албан ёсны мэдээ үзэх ↗</a>
         </section>
+        {/* Хадгалсан бодит зургийн сан — API мэдээний гарчигтай тулгаж оноогоогүй */}
+        <section className="mb-12">
+          <div className="mb-5">
+            <p className="text-xs font-bold tracking-widest text-[#A67B3E]">ГЭРЭЛ ЗУРГИЙН САН</p>
+            <h2 className="mt-2 text-2xl font-bold text-[#123C69]">Сургуулийн мэдээний зургууд</h2>
+            <p className="mt-2 text-sm leading-6 text-slate-600">Албан ёсны сайтаас хадгалсан зургууд. Дэлгэрэнгүй мэдээлэл, гарчгийг баталгаажуулаагүй тул зураг тус бүрийг тодорхой мэдээнд холбож тайлбарлаагүй.</p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              "news_2026_10_19_172910.webp",
+              "news_2026_10_19_173020.webp",
+              "news_2026_10_19_173155.webp",
+              "news_2026_10_19_173350.webp",
+              "news_2026_10_19_173818.webp",
+              "news_2026_10_19_174040.webp",
+              "news_2026_10_19_174240.webp",
+              "news_2026_10_19_174358.webp",
+              "news_2026_9_16_93241.webp",
+            ].map((name, index) => (
+              <figure key={name} className="overflow-hidden border border-slate-200 bg-white">
+                <img src={`/${name}`} alt={`Сургуулийн зургийн сан — ${index + 1}`} loading="lazy" className="aspect-[16/10] w-full object-cover" />
+              </figure>
+            ))}
+          </div>
+        </section>
         {/* МУИС-ийн албан ёсны сайтаас баталгаажсан нийтлэлүүд */}
         <section className="mb-12">
           <h2 className="mb-5 text-2xl font-bold text-[#123C69]">Баруун бүсийн сургуулийн онцлох мэдээ</h2>
