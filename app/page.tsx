@@ -218,7 +218,7 @@ async function HomeContent() {
           </div>
           <div className="relative min-h-[300px] overflow-hidden lg:min-h-[690px]">
             <img src="/school-banner.png" alt="МУИС-ийн Баруун бүсийн сургуулийн барилга" className="absolute inset-0 h-full w-full object-cover object-[center_45%]" />
-            <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-20 bg-gradient-to-r from-[#062749] to-transparent lg:block" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-[38%] bg-gradient-to-r from-[#062749] via-[#062749]/65 to-transparent lg:block" />
           </div>
         </div>
         {/* Үзүүлэлтүүд: зургийн доор тусдаа байрлах тул давхарлахгүй */}
