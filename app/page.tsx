@@ -204,66 +204,45 @@ async function HomeContent() {
   return (
     <main className="min-h-screen bg-white">
 
-      {/* Олон улсын их сургуулийн хэв маяг: зураг ба гарчиг тусдаа */}
-      <section className="bg-[#F8F7F4]">
-        <div className="relative h-[280px] overflow-hidden bg-[#DFE7EB] sm:h-[430px] lg:h-[590px]">
-          <div className="absolute inset-0 bg-[url('/school-banner.png')] bg-cover bg-center" role="img" aria-label="МУИС-ийн Баруун бүсийн сургуулийн барилга" />
-          <div className="absolute bottom-0 left-0 bg-[#0D3154]/90 px-5 py-3 text-[11px] font-semibold tracking-widest text-white sm:left-8 sm:px-7">МУИС • БАРУУН БҮСИЙН СУРГУУЛЬ</div>
-        </div>
-        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-14 md:px-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-end lg:gap-16 lg:py-20">
-          <div>
-            <p className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-[#A67B3E]">МЭДЛЭГ • СУДАЛГАА • ИРЭЭДҮЙ</p>
-            <h1 className="max-w-3xl text-[clamp(2.5rem,5.2vw,5rem)] font-semibold leading-[1.12] tracking-tight text-[#102F4F]">Боломжоо нээ.<br/><span className="font-normal text-[#53718D]">Ирээдүйгээ бүтээ.</span></h1>
-          </div>
-          <div className="lg:pb-2">
-            <p className="max-w-md text-base leading-8 text-slate-600">МУИС-ийн Баруун бүсийн сургуулийн сургалт, судалгаа, оюутны амьдрал болон шинэ мэдээтэй нэг дор танилцаарай.</p>
-            <div className="mt-7 flex flex-wrap items-center gap-5">
-              <Link href="/admissions" className="inline-flex items-center gap-2 rounded-md bg-[#103B69] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#175284]">Элсэлтийн мэдээлэл <ArrowRight size={17}/></Link>
-              <Link href="/about" className="inline-flex items-center gap-2 border-b border-[#A67B3E] pb-1 text-sm font-semibold text-[#103B69]">Сургуулийн тухай <ArrowRight size={16}/></Link>
-            </div>
+      {/* Шинэ нүүр: зураг дээр гарчиг байрлуулсан, өндөр нягтралтай hero */}
+      <section className="relative isolate min-h-[680px] overflow-hidden bg-[#071E35] text-white lg:min-h-[760px]">
+        <div className="absolute inset-0 bg-[url('/school-banner.png')] bg-cover bg-center" role="img" aria-label="МУИС-ийн Баруун бүсийн сургуулийн барилга" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#071E35]/95 via-[#071E35]/75 to-[#071E35]/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#071E35]/85 via-transparent to-transparent" />
+        <div className="relative mx-auto flex min-h-[680px] max-w-7xl flex-col justify-center px-6 pb-36 pt-24 md:px-10 lg:min-h-[760px]">
+          <div className="mb-8 inline-flex w-fit items-center gap-3 rounded-full border border-white/25 bg-white/10 px-5 py-2.5 text-xs font-bold tracking-[0.18em] backdrop-blur-md"><span className="h-2 w-2 rounded-full bg-[#F3B64D]" /> МУИС • БАРУУН БҮСИЙН СУРГУУЛЬ</div>
+          <h1 className="max-w-4xl text-[clamp(3.5rem,7.5vw,7.5rem)] font-black leading-[1.02] tracking-tight">Мэдлэгээс<br/><span className="text-[#F3B64D]">ирээдүй рүү.</span></h1>
+          <p className="mt-8 max-w-xl border-l-4 border-[#F3B64D] pl-6 text-base leading-8 text-white/85 md:text-lg">Суралцах, хөгжих, судлах боломжийг нэг дороос. МУИС-ийн Баруун бүсийн сургуулийн ертөнцтэй танилцаарай.</p>
+          <div className="mt-10 flex flex-wrap gap-4">
+            <Link href="/admissions" className="inline-flex items-center gap-3 rounded-full bg-[#F3B64D] px-8 py-4 text-sm font-extrabold text-[#092745] transition hover:bg-white">Элсэлттэй танилцах <ArrowRight size={18}/></Link>
+            <Link href="/about" className="inline-flex items-center gap-3 rounded-full border border-white/40 bg-white/10 px-8 py-4 text-sm font-bold text-white backdrop-blur-md transition hover:bg-white/20">Сургуулийн тухай <ArrowRight size={18}/></Link>
           </div>
         </div>
+        <div className="absolute bottom-8 left-0 right-0 mx-auto flex max-w-7xl items-center justify-between px-6 text-xs font-bold tracking-[0.2em] text-white/70 md:px-10"><span>ХОВД • МОНГОЛ УЛС</span><span>СУРГАЛТ · СУДАЛГАА · ХӨГЖИЛ</span></div>
       </section>
 
-      {/* ====================================
-          3. ДӨРВӨН ӨНГӨЛӨГ КАРТ
-      ==================================== */}
-      <section className="relative z-20 mx-auto max-w-7xl px-5 py-16 md:px-8 lg:py-20">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-
-          {quickLinks.map((item) => {
-            const Icon = item.icon;
-
-            return (
-              <Link
-                key={item.title}
-                href={item.href}
-                className="group flex min-h-[172px] gap-4 border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#CDA45D] hover:shadow-lg"
-              >
-                <div
-                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg text-white ${item.color}`}
-                >
-                  <Icon size={30} />
-                </div>
-
-                <div className="flex min-w-0 flex-1 flex-col">
-                  <h2 className="text-lg font-bold text-[#103B69]">
-                    {item.title}
-                  </h2>
-
-                  <p className="mt-2 text-sm leading-6 text-slate-500">
-                    {item.description}
-                  </p>
-
-                  <ArrowRight
-                    size={21}
-                    className="mt-auto self-end text-[#B18446] transition group-hover:translate-x-1"
-                  />
-                </div>
+      {/* Том зурагт үйлчилгээний картууд: үндсэн чиглэлүүд рүү шууд очно */}
+      <section className="relative z-10 bg-[#F4F6F8] px-5 py-20 md:px-8 lg:py-28">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 flex flex-wrap items-end justify-between gap-5">
+            <div><p className="text-xs font-extrabold tracking-[0.25em] text-[#B17A26]">ТАНЫ БОЛОМЖ ЭНДЭЭС ЭХЭЛНЭ</p><h2 className="mt-4 text-4xl font-black tracking-tight text-[#092B4B] md:text-6xl">Өөрийн замаа сонго.</h2></div>
+            <p className="max-w-sm text-base leading-8 text-slate-600">Элсэлт, сургалт, судалгаа, оюутны амьдралын мэдээлэлд хурдан хүрээрэй.</p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              {title:"Элсэлт",description:"Ирээдүйн оюутнуудад",href:"/admissions",image:"/admis.webp",number:"01"},
+              {title:"Сургалт",description:"Хөтөлбөр, суралцах боломж",href:"/academics",image:"/bbsurguuli.webp",number:"02"},
+              {title:"Судалгаа",description:"Эрдэм шинжилгээ, шинэ санаа",href:"/research",image:"/research.webp",number:"03"},
+              {title:"Оюутны амьдрал",description:"Номын сан, сургуулийн орчин",href:"/library",image:"/library.webp",number:"04"},
+            ].map((item)=>(
+              <Link key={item.href} href={item.href} className="group relative flex min-h-[390px] flex-col justify-between overflow-hidden rounded-2xl bg-[#0C3454] p-7 text-white shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                <img src={item.image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#071E35] via-[#071E35]/45 to-[#071E35]/10" />
+                <div className="relative flex items-start justify-between"><span className="text-sm font-bold tracking-widest text-white/80">{item.number} / 04</span><span className="rounded-full border border-white/40 bg-white/10 p-3 backdrop-blur-sm transition group-hover:bg-[#F3B64D] group-hover:text-[#092745]"><ArrowRight size={20}/></span></div>
+                <div className="relative"><h3 className="text-3xl font-black tracking-tight">{item.title}</h3><p className="mt-3 text-sm leading-6 text-white/80">{item.description}</p><div className="mt-6 h-1 w-12 rounded-full bg-[#F3B64D] transition-all group-hover:w-full"/></div>
               </Link>
-            );
-          })}
-
+            ))}
+          </div>
         </div>
       </section>
 
