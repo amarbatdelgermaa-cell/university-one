@@ -256,118 +256,64 @@ async function HomeContent() {
         </div>
       </section>
 
-      {/* ====================================
-          4. ОНЦЛОХ МЭДЭЭ — API 2, API 4
-      ==================================== */}
-      <section className="mx-auto max-w-7xl px-5 pb-24 md:px-8">
-        <div className="mb-7 flex flex-wrap items-center justify-between gap-4">
-
-          <div>
-            <p className="text-sm font-bold text-[#D59B16]">
-              СУРГУУЛИЙН МЭДЭЭ
-            </p>
-
-            <h2 className="mt-2 text-3xl font-extrabold text-[#07347C]">
-              Онцлох мэдээ
-            </h2>
+      {/* Онцлох мэдээ: бодит API мэдээг илүү цэгцтэй картуудаар үзүүлнэ. */}
+      <section className="bg-white px-5 py-20 md:px-8 lg:py-28">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <p className="text-xs font-extrabold tracking-[.24em] text-[#B17A26]">МЭДЭЭ • ҮЙЛ ЯВДАЛ</p>
+              <h2 className="mt-3 text-4xl font-black tracking-tight text-[#092B4B] md:text-5xl">Онцлох мэдээ</h2>
+              <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600">Сургуулийн шинэ мэдээ, үйл ажиллагааны мэдээллийг нэг дороос.</p>
+            </div>
+            <Link href="/news" className="inline-flex items-center gap-3 rounded-full border border-[#0B3456]/20 px-6 py-3 text-sm font-bold text-[#0B3456] transition hover:border-[#0B3456] hover:bg-[#F1F5F9]">Бүх мэдээг үзэх <ArrowRight size={18}/></Link>
           </div>
-
-          <Link
-            href="/news"
-            className="inline-flex items-center gap-2 font-bold text-[#07347C] hover:text-[#087BFA]"
-          >
-            Бүх мэдээ
-            <ArrowRight size={18} />
-          </Link>
+          {news.length > 0 ? (
+            <div className="grid gap-6 md:grid-cols-3">
+              {news.map((item, index) => (
+                <Link key={item._id} href={`/news/${item._id}`} className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#D2A153]/50 hover:shadow-xl">
+                  {/* Мэдээнд зураг байхгүй бол өөр мэдээний зургийг буруу харуулахгүй. */}
+                  <div className="relative flex h-44 items-center justify-center overflow-hidden bg-gradient-to-br from-[#0B3456] to-[#195D86]">
+                    <div className="absolute -right-8 -top-10 h-40 w-40 rounded-full border border-white/15" />
+                    <div className="absolute -bottom-16 -left-12 h-48 w-48 rounded-full border border-white/10" />
+                    <Newspaper size={46} strokeWidth={1.3} className="relative text-white/80" />
+                    <span className="absolute left-5 top-5 rounded-full border border-white/20 bg-white/15 px-3 py-1.5 text-[11px] font-bold tracking-wider text-white backdrop-blur-sm">МЭДЭЭ {String(index + 1).padStart(2, "0")}</span>
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    <p className="flex items-center gap-2 text-xs font-semibold text-[#9A7137]"><CalendarDays size={15}/>{item.created_at ? new Date(item.created_at).toLocaleDateString("mn-MN") : "Сургуулийн мэдээ"}</p>
+                    <h3 className="mt-4 line-clamp-3 text-xl font-extrabold leading-8 text-[#0B3456] transition group-hover:text-[#B17A26]">{item.title}</h3>
+                    {item.description && <p className="mt-3 line-clamp-3 text-sm leading-7 text-slate-600">{item.description.replace(/<[^>]*>/g, "")}</p>}
+                    <span className="mt-auto inline-flex items-center gap-2 pt-7 text-sm font-bold text-[#0B3456]">Дэлгэрэнгүй <ArrowRight size={16} className="transition-transform group-hover:translate-x-1"/></span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <div className="rounded-2xl border border-slate-200 bg-[#F6F8FA] px-8 py-14 text-center">
+              <Newspaper size={42} className="mx-auto text-[#0B3456]"/>
+              <p className="mt-4 text-slate-600">Мэдээний мэдээлэл одоогоор ачаалагдсангүй.</p>
+              <Link href="/news" className="mt-5 inline-flex items-center gap-2 font-bold text-[#0B3456]">Мэдээний хуудас <ArrowRight size={16}/></Link>
+            </div>
+          )}
         </div>
-
-        {news.length > 0 ? (
-          <div className="grid gap-5 md:grid-cols-3">
-            {news.map((item) => (
-              <Link
-                key={item._id}
-                href={`/news/${item._id}`}
-                className="group overflow-hidden border border-slate-200 bg-white transition hover:-translate-y-1 hover:shadow-lg"
-              >
-                {/* Мэдээнд зураг холбоогүй үед өөр нийтлэлийн зургийг буруу оноохгүй. */}
-                <div className="flex h-40 items-center justify-center bg-[#123D63]">
-                  <Newspaper size={54} className="text-white/80" />
-                </div>
-
-                <div className="p-6">
-                  <div className="mb-3 flex items-center gap-2 text-xs text-slate-500">
-                    <CalendarDays size={15} />
-
-                    {item.created_at
-                      ? new Date(
-                          item.created_at
-                        ).toLocaleDateString("mn-MN")
-                      : "Сургуулийн мэдээ"}
-                  </div>
-
-                  <h3 className="line-clamp-3 text-lg font-bold leading-7 text-[#07347C] group-hover:text-[#087BFA]">
-                    {item.title}
-                  </h3>
-
-                  {item.description && (
-                    <p className="mt-3 line-clamp-3 text-sm leading-6 text-slate-500">
-                      {item.description.replace(
-                        /<[^>]*>/g,
-                        ""
-                      )}
-                    </p>
-                  )}
-
-                  <div className="mt-5 flex items-center gap-2 text-sm font-bold text-[#087BFA]">
-                    Дэлгэрэнгүй унших
-                    <ArrowRight size={16} />
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        ) : (
-          <div className="rounded-2xl border border-blue-100 bg-white p-10 text-center">
-            <Newspaper
-              size={42}
-              className="mx-auto text-[#087BFA]"
-            />
-
-            <p className="mt-4 text-slate-600">
-              Мэдээний мэдээлэл одоогоор
-              ачаалагдсангүй.
-            </p>
-
-            <Link
-              href="/news"
-              className="mt-4 inline-block font-bold text-[#087BFA]"
-            >
-              Мэдээний хуудас руу очих →
-            </Link>
-          </div>
-        )}
       </section>
 
-      {/* public/ хавтсанд оруулсан бодит зурагт сан. Зургийг худал мэдээтэй холбохгүй. */}
-      <section className="bg-[#F6F8FA] px-5 py-20 md:px-8">
+      {/* Бодит сургуулийн зургууд: эхний зургийг онцолж, дараагийн хоёрыг хажууд нь байрлуулна. */}
+      <section className="bg-[#F3F6F8] px-5 py-20 md:px-8 lg:py-28">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs font-bold tracking-[0.2em] text-[#A67B3E]">МАНАЙ ОРЧИН</p>
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-5">
-            <div>
-              <h2 className="mt-2 text-3xl font-semibold tracking-tight text-[#103B69] md:text-4xl">Сургуулийн амьдрал зургаар</h2>
-              <p className="mt-3 text-sm leading-7 text-slate-600">Сургуулийн сайтаас хадгалсан бодит гэрэл зургуудын цуглуулга.</p>
-            </div>
-            <Link href="/news" className="inline-flex items-center gap-2 border-b border-[#B18446] pb-1 text-sm font-bold text-[#103B69]">Мэдээ мэдээлэл <ArrowRight size={16}/></Link>
+          <div className="mb-10 flex flex-wrap items-end justify-between gap-5">
+            <div><p className="text-xs font-extrabold tracking-[.24em] text-[#B17A26]">МАНАЙ ОРЧИН</p><h2 className="mt-3 text-4xl font-black tracking-tight text-[#092B4B] md:text-5xl">Сургуулийн амьдрал</h2><p className="mt-4 text-sm leading-7 text-slate-600">Сургуулийн орчин, хамт олны бодит гэрэл зургууд.</p></div>
+            <Link href="/about" className="inline-flex items-center gap-2 text-sm font-bold text-[#0B3456] hover:text-[#B17A26]">Сургуулийн тухай <ArrowRight size={17}/></Link>
           </div>
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 md:grid-rows-2">
             {[
-              { src: "/grad-scaled-e1705378650270-1024x682.webp", label: "Төгсөлтийн зураг" },
-              { src: "/alsiin.webp", label: "Сургуулийн зургийн сан" },
-              { src: "/news_2026_10_19_173350.webp", label: "Сургуулийн хамт олон" }
-            ].map((photo) => (
-              <figure key={photo.src} className="overflow-hidden bg-white">
-                <img src={photo.src} alt={photo.label} loading="lazy" className="aspect-[4/3] w-full object-cover" />
-                <figcaption className="px-4 py-4 text-sm font-semibold text-[#103B69]">{photo.label}</figcaption>
+              {src:"/grad-scaled-e1705378650270-1024x682.webp",label:"Төгсөлтийн мөчүүд"},
+              {src:"/alsiin.webp",label:"Сургуулийн орчин"},
+              {src:"/news_2026_10_19_173350.webp",label:"Сургуулийн хамт олон"},
+            ].map((photo,index)=>(
+              <figure key={photo.src} className={`group relative min-h-[240px] overflow-hidden rounded-2xl bg-[#0B3456] shadow-sm ${index===0?"md:row-span-2 md:min-h-[500px]":"md:min-h-[240px]"}`}>
+                <img src={photo.src} alt={photo.label} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"/>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#071E35]/85 via-transparent to-transparent"/>
+                <figcaption className="absolute bottom-0 left-0 right-0 p-6 text-xl font-extrabold text-white md:p-8">{photo.label}<span className="mt-3 block h-1 w-12 rounded-full bg-[#F4B84E]"/></figcaption>
               </figure>
             ))}
           </div>
