@@ -1,22 +1,19 @@
 import Link from "next/link";
-import { ArrowRight, BookOpen, CalendarDays, GraduationCap } from "lucide-react";
-
-export const metadata = { title: "Сургалт | МУИС-ийн Баруун бүсийн сургууль" };
-export default function AcademicsPage() {
-  return <main className="min-h-screen bg-slate-50">
-    <section className="bg-[#07347C] px-5 py-14 text-white"><div className="mx-auto max-w-6xl">
-      <p className="text-sm font-bold text-[#F7BC32]">СУРГАЛТЫН МЭДЭЭЛЭЛ</p><h1 className="mt-3 text-4xl font-bold">Сургалт</h1>
-      <p className="mt-4 max-w-3xl text-blue-100">Сургалтын үйл ажиллагаа, хөтөлбөр, оюутанд хэрэгтэй мэдээллийн төвлөрсөн хэсэг.</p>
-    </div></section>
-    <section className="mx-auto grid max-w-6xl gap-6 px-5 py-12 md:grid-cols-3">
-      {[
-        { title: "Сургалтын хөтөлбөр", text: "Сургалтын хөтөлбөрийн талаарх баталгаажсан мэдээллийг энд байршуулна.", icon: GraduationCap },
-        { title: "Хичээлийн мэдээлэл", text: "Улирал, хуваарь болон сургалтын зарлалыг оюутнуудад хүргэнэ.", icon: CalendarDays },
-        { title: "Оюутны дэмжлэг", text: "Суралцахад хэрэгтэй заавар, эх сурвалж, мэдээллийг нэгтгэнэ.", icon: BookOpen },
-      ].map(({title,text,icon:Icon})=><article key={title} className="rounded-2xl border bg-white p-7 shadow-sm"><Icon size={34} className="text-blue-800"/>
-        <h2 className="mt-5 text-xl font-bold text-[#07347C]">{title}</h2><p className="mt-3 leading-7 text-slate-600">{text}</p>
-      </article>)}
-    </section>
-    <div className="mx-auto max-w-6xl px-5 pb-16"><Link href="/news" className="inline-flex items-center gap-2 rounded-full bg-[#F7BC32] px-6 py-3 font-semibold text-[#07347C]">Сургалтын мэдээ үзэх <ArrowRight size={17}/></Link></div>
-  </main>;
-}
+import { ArrowRight } from "lucide-react";
+export const metadata={title:"Сургалт | МУИС-ийн Баруун бүсийн сургууль"};
+// Нэгдсэн загвар: зурагтай танилцуулга болон хэрэгтэй холбоосууд.
+export default function Page(){const cards=[{"title":"Тэнхимүүд","description":"Сургуулийн тэнхимүүдийн мэдээлэл","href":"/schools"},{"title":"Номын сан","description":"Суралцахад хэрэгтэй эх сурвалж","href":"/library"},{"title":"Мэдээ","description":"Сургалтын зар, үйл явдал","href":"/news"}];return <main className="min-h-screen bg-[#f5f7f8]">
+ <section className="relative isolate min-h-[430px] overflow-hidden bg-[#082b46] text-white">
+  <img src="/bbsurguuli.webp" alt="" className="absolute inset-0 -z-20 h-full w-full object-cover"/>
+  <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#082b46]/95 via-[#082b46]/75 to-[#082b46]/25"/>
+  <div className="mx-auto flex min-h-[430px] max-w-7xl flex-col justify-center px-6 py-20 md:px-8">
+   <p className="text-xs font-extrabold tracking-[.24em] text-[#e5b75f]">МУИС • БАРУУН БҮСИЙН СУРГУУЛЬ</p>
+   <h1 className="mt-5 text-5xl font-black tracking-tight md:text-7xl">Сургалт</h1>
+   <p className="mt-6 max-w-xl text-lg leading-8 text-white/85">Хөтөлбөр, сургалтын мэдээлэл, оюутны боломжийг нэг дороос.</p>
+  </div>
+ </section>
+ <section className="mx-auto max-w-7xl px-6 py-20 md:px-8"><p className="site-kicker">ТАНД ХЭРЭГТЭЙ</p><h2 className="site-title mt-3">Мэдээлэлтэй танилцах</h2>
+ <div className="mt-10 grid gap-6 md:grid-cols-3">{cards.map((item,index)=><Link key={item.href} href={item.href} className="site-card group flex min-h-64 flex-col p-8 transition duration-300 hover:-translate-y-1"><span className="text-sm font-extrabold text-[#bd8e42]">0{index+1} / 03</span><h3 className="mt-8 text-2xl font-extrabold text-[#0a304e]">{item.title}</h3><p className="mt-3 leading-7 text-slate-600">{item.description}</p><span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-bold text-[#0a304e]">Дэлгэрэнгүй <ArrowRight size={17} className="transition group-hover:translate-x-1"/></span></Link>)}</div>
+ </section>
+ <section className="bg-[#eaf0f3] px-6 py-16 md:px-8"><div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-6"><div><h2 className="text-2xl font-extrabold text-[#0a304e]">Дэлгэрэнгүй мэдээлэл хэрэгтэй юу?</h2><p className="mt-3 text-slate-600">Холбоо барих хэсгээр дамжуулан мэдээлэл аваарай.</p></div><Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-[#082b46] px-6 py-4 text-sm font-bold text-white transition hover:bg-[#16557b]">Холбоо барих <ArrowRight size={18}/></Link></div></section>
+ </main>}
