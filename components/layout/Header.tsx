@@ -1,6 +1,6 @@
 
 import Link from "next/link";
-import Image from "next/image";
+import { GraduationCap } from "lucide-react";
 import { Search, Globe, Mail, Phone } from "lucide-react";
 
 // Вебийн хамгийн дээд хэсэг
@@ -54,14 +54,7 @@ export default function Header() {
           >
             {/* Сургуулийн лого */}
 <div className="flex h-[100px] w-[100px] shrink-0 items-center justify-center rounded-full border-2 border-[#D4AF37] bg-white p-1 shadow-lg">
-  <Image
-  src="/logo-final.png"
-  alt="Сургуулийн лого"
-  width={90}
-  height={90}
-  className="h-[90px] w-[90px] object-contain"
-  priority
-/>
+  <GraduationCap size={52} className="text-[#07347C]" aria-label="Сургуулийн таних тэмдэг" />
 </div>
             {/* Сургуулийн нэр */}
             <div className="min-w-0">
