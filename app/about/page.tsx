@@ -25,9 +25,9 @@ export default function AboutPage() {
     </section>
     <section className="mx-auto max-w-6xl px-5 pb-16">
       <div className="rounded-2xl border bg-white p-8">
-        <h2 className="text-2xl font-bold text-[#07347C]">Мэдээллийн эх сурвалж</h2>
-        <p className="mt-3 leading-7 text-slate-700">Энэхүү веб нь оюутны бие даалтын хүрээнд боловсруулсан сургуулийн мэдээллийн порталын шинэчилсэн загвар юм. Албан ёсны болон баталгаажсан мэдээллийг эх сурвалжтай нь харуулна.</p>
-        <a href="http://khovd.num.edu.mn:5000/" target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 text-blue-700 underline">Сургуулийн албан ёсны сайт <ArrowRight size={16}/></a>
+        <h2 className="text-2xl font-bold text-[#07347C]">Сургуулийн мэдээлэл нэг дор</h2>
+        <p className="mt-3 leading-7 text-slate-700">Сургалт, элсэлт, тэнхимүүд, судалгаа, мэдээ мэдээлэл болон холбоо барих хэсгүүдийг энэ вебээс үзэх боломжтой. Мэдээллийг баталгаажсан эх сурвалжид тулгуурлан шинэчилнэ.</p>
+        <Link href="/contact" className="mt-5 inline-flex items-center gap-2 text-blue-700 underline">Холбоо барих <ArrowRight size={16}/></Link>
       </div>
     </section>
   </main>;
