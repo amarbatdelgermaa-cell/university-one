@@ -204,69 +204,29 @@ async function HomeContent() {
   return (
     <main className="min-h-screen bg-white">
 
-      {/* ====================================
-          1. ЦЭНХЭР ТАНИЛЦУУЛГА
-      ==================================== */}
-      <section className="relative z-10 overflow-hidden bg-gradient-to-br from-[#071B38] via-[#073C86] to-[#0C5BA4] text-white">
-
-        {/* Арын дугуй чимэглэл */}
-        <div className="pointer-events-none absolute -right-28 -top-24 h-80 w-80 rounded-full border border-[#F7BC32]/20" />
-        <div className="pointer-events-none absolute -right-16 -top-10 h-64 w-64 rounded-full border border-[#F7BC32]/20" />
-
-        <div className="relative mx-auto max-w-7xl px-5 pb-14 pt-14 md:px-8 md:pb-20 md:pt-20">
-
-          <div className="mb-4 inline-flex items-center rounded-full border border-[#F7BC32]/70 px-5 py-2 text-xs font-bold tracking-[0.16em] text-[#F7BC32]">
-            МЭДЛЭГ • ХӨГЖИЛ • ИРЭЭДҮЙ
+      {/* Сургуулийн барилгын зурагтай үндсэн баннер */}
+      <section className="relative isolate flex min-h-[460px] items-center overflow-hidden bg-[#07347C] text-white sm:min-h-[540px] lg:min-h-[620px]">
+        <div className="absolute inset-0 -z-20 bg-[url('/school-banner.png')] bg-cover bg-center" role="img" aria-label="МУИС-ийн Баруун бүсийн сургуулийн барилга" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#07347C]/95 via-[#07347C]/75 to-[#07347C]/10" />
+        <div className="mx-auto w-full max-w-7xl px-5 py-20 md:px-8">
+          <div className="max-w-2xl">
+            <p className="mb-5 text-sm font-extrabold tracking-[0.2em] text-[#FFBE2E] sm:text-base">ШИНЭ ЭЛСЭЛТ</p>
+            <h1 className="text-4xl font-black leading-[1.15] tracking-tight sm:text-6xl lg:text-7xl">
+              ИРЭЭДҮЙГЭЭ <span className="block text-[#FFBE2E]">МЭДЛЭГЭЭР</span><span className="block text-[#FFBE2E]">БҮТЭЭ</span>
+            </h1>
+            <p className="mt-7 max-w-xl text-base leading-8 text-blue-50 sm:text-lg">
+              Монгол Улсын Их Сургуулийн Баруун бүсийн сургууль таны шинэ боломж, мэдлэг, хөгжлийн аялалд урьж байна.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/admissions" className="inline-flex items-center gap-3 rounded-lg bg-[#FFBE2E] px-7 py-4 font-extrabold text-[#07347C] transition hover:bg-amber-300">
+                ЭЛСЭЛТИЙН МЭДЭЭЛЭЛ ҮЗЭХ <ArrowRight size={20}/>
+              </Link>
+              <Link href="/about" className="inline-flex items-center gap-2 rounded-lg border border-white/70 px-6 py-4 font-bold text-white transition hover:bg-white/10">
+                СУРГУУЛИЙН ТУХАЙ <ArrowRight size={18}/>
+              </Link>
+            </div>
           </div>
-
-          <h1 className="max-w-5xl text-4xl font-extrabold leading-tight sm:text-5xl md:text-6xl">
-            Баруун бүсийн{" "}
-            <span className="text-[#FFBE2E]">
-              их сургууль
-            </span>
-          </h1>
-
-          <p className="mt-3 max-w-3xl text-sm leading-6 text-blue-100 md:text-base">
-            Сургалт, эрдэм шинжилгээ, оюутны амьдрал, шинэ мэдээ мэдээллийг нэг дороос аваарай.
-          </p>
-
-          <div className="mt-5 flex flex-wrap gap-3">
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 rounded-full bg-[#FFBE2E] px-6 py-3 text-sm font-bold text-[#082C66] transition hover:bg-[#FFD25C]"
-            >
-              Дэлгэрэнгүй
-              <ArrowRight size={17} />
-            </Link>
-
-            <Link
-              href="/news"
-              className="inline-flex items-center gap-2 rounded-full border border-[#F7BC32] px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-            >
-              Мэдээ үзэх
-              <ArrowRight size={17} />
-            </Link>
-          </div>
-
         </div>
-      </section>
-
-      {/* ====================================
-          2. СУРГУУЛИЙН ЗУРАГ
-          Цэнхэр хэсэгтэй зөөлөн уусна
-      ==================================== */}
-      <section className="relative overflow-hidden bg-[#073C86]">
-
-        {/* Шинэ тэнгэртэй зураг */}
-        <img
-          src="/school-banner.png"
-          alt="Баруун бүсийн их сургуулийн барилга"
-          className="block h-[260px] w-full object-cover object-center sm:h-[400px] lg:h-[520px]"
-        />
-
-        {/* Зургийн дээд хэсгийн уусалт */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#073C86]/70 to-transparent" />
-
       </section>
 
       {/* ====================================
