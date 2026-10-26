@@ -1,3 +1,4 @@
+import { connection } from "next/server";
 
 import { Suspense } from "react";
 import { getArchive } from "@/lib/api";
@@ -15,6 +16,7 @@ type ArchiveResponse = {
 
 // Архивын мэдээллийг серверээс авах
 async function ArchiveContent() {
+  await connection();
   let archive: ArchiveItem[] = [];
   let error = "";
 

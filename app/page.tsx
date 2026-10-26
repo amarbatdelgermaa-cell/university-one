@@ -1,3 +1,4 @@
+import { connection } from "next/server";
 
 import { Suspense } from "react";
 import Link from "next/link";
@@ -52,6 +53,7 @@ type NewsItem = {
 
 // Нүүр хуудасны API мэдээллийг ачаалах
 async function HomeContent() {
+  await connection();
   let stats: Statistics | null = null;
   let season: SeasonInfo | null = null;
   let news: NewsItem[] = [];
@@ -130,28 +132,28 @@ async function HomeContent() {
       description: "Хөтөлбөр болон сургалтын мэдээлэл",
       href: "/academics",
       icon: GraduationCap,
-      color: "bg-[#087BFA]",
+      color: "bg-[#0B4F9C]",
     },
     {
       title: "Судалгаа",
       description: "Судалгаа, төсөл, шинэ санаа",
       href: "/research",
       icon: FlaskConical,
-      color: "bg-[#FFBB24]",
+      color: "bg-[#C99727]",
     },
     {
       title: "Оюутны амьдрал",
       description: "Оюутанд хэрэгтэй мэдээ, мэдээлэл",
       href: "/news",
       icon: Users,
-      color: "bg-[#00A5A5]",
+      color: "bg-[#137D89]",
     },
     {
       title: "Мэдээний архив",
       description: "Өмнөх он, саруудын мэдээлэл",
       href: "/archive",
       icon: Newspaper,
-      color: "bg-[#FF841F]",
+      color: "bg-[#315C99]",
     },
   ];
 
@@ -200,80 +202,34 @@ async function HomeContent() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#F4F8FF]">
+    <main className="min-h-screen bg-white">
 
-      {/* ====================================
-          1. ЦЭНХЭР ТАНИЛЦУУЛГА
-      ==================================== */}
-      <section className="relative z-10 overflow-hidden bg-[#073C86] text-white">
-
-        {/* Арын дугуй чимэглэл */}
-        <div className="pointer-events-none absolute -right-28 -top-24 h-80 w-80 rounded-full border border-[#F7BC32]/20" />
-        <div className="pointer-events-none absolute -right-16 -top-10 h-64 w-64 rounded-full border border-[#F7BC32]/20" />
-
-        <div className="relative mx-auto max-w-7xl px-5 pb-7 pt-8 md:px-8 md:pb-8 md:pt-10">
-
-          <div className="mb-4 inline-flex items-center rounded-full border border-[#F7BC32]/70 px-5 py-2 text-xs font-bold tracking-[0.16em] text-[#F7BC32]">
-            МЭДЛЭГ • ХӨГЖИЛ • ИРЭЭДҮЙ
-          </div>
-
-          <h1 className="max-w-5xl text-3xl font-extrabold leading-tight sm:text-4xl md:text-5xl">
-            Баруун бүсийн{" "}
-            <span className="text-[#FFBE2E]">
-              их сургууль
-            </span>
-          </h1>
-
-          <p className="mt-3 max-w-3xl text-sm leading-6 text-blue-100 md:text-base">
-            Сургуулийн мэдээ, сургалт, үйл ажиллагаа
-            болон хичээлийн улирлын мэдээллийг
-            нэг дороос аваарай.
-          </p>
-
-          <div className="mt-5 flex flex-wrap gap-3">
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 rounded-full bg-[#FFBE2E] px-6 py-3 text-sm font-bold text-[#082C66] transition hover:bg-[#FFD25C]"
-            >
-              Дэлгэрэнгүй
-              <ArrowRight size={17} />
-            </Link>
-
-            <Link
-              href="/news"
-              className="inline-flex items-center gap-2 rounded-full border border-[#F7BC32] px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-            >
-              Мэдээ үзэх
-              <ArrowRight size={17} />
-            </Link>
-          </div>
-
+      {/* Олон улсын их сургуулийн хэв маяг: зураг ба гарчиг тусдаа */}
+      <section className="bg-[#F8F7F4]">
+        <div className="relative h-[280px] overflow-hidden bg-[#DFE7EB] sm:h-[430px] lg:h-[590px]">
+          <div className="absolute inset-0 bg-[url('/school-banner.png')] bg-cover bg-center" role="img" aria-label="МУИС-ийн Баруун бүсийн сургуулийн барилга" />
+          <div className="absolute bottom-0 left-0 bg-[#0D3154]/90 px-5 py-3 text-[11px] font-semibold tracking-widest text-white sm:left-8 sm:px-7">МУИС • БАРУУН БҮСИЙН СУРГУУЛЬ</div>
         </div>
-      </section>
-
-      {/* ====================================
-          2. СУРГУУЛИЙН ЗУРАГ
-          Цэнхэр хэсэгтэй зөөлөн уусна
-      ==================================== */}
-      <section className="relative -mt-8 overflow-hidden bg-[#073C86]">
-
-        {/* Шинэ тэнгэртэй зураг */}
-        <img
-          src="/school-banner.png"
-          alt="Баруун бүсийн их сургуулийн барилга"
-          className="block h-auto w-full"
-        />
-
-        {/* Зургийн дээд хэсгийн уусалт */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#073C86] via-[#073C86]/70 to-transparent sm:h-40 md:h-48" />
-
+        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-14 md:px-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-end lg:gap-16 lg:py-20">
+          <div>
+            <p className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-[#A67B3E]">МЭДЛЭГ • СУДАЛГАА • ИРЭЭДҮЙ</p>
+            <h1 className="max-w-3xl text-[clamp(2.5rem,5.2vw,5rem)] font-semibold leading-[1.12] tracking-tight text-[#102F4F]">Боломжоо нээ.<br/><span className="font-normal text-[#53718D]">Ирээдүйгээ бүтээ.</span></h1>
+          </div>
+          <div className="lg:pb-2">
+            <p className="max-w-md text-base leading-8 text-slate-600">МУИС-ийн Баруун бүсийн сургуулийн сургалт, судалгаа, оюутны амьдрал болон шинэ мэдээтэй нэг дор танилцаарай.</p>
+            <div className="mt-7 flex flex-wrap items-center gap-5">
+              <Link href="/admissions" className="inline-flex items-center gap-2 rounded-md bg-[#103B69] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#175284]">Элсэлтийн мэдээлэл <ArrowRight size={17}/></Link>
+              <Link href="/about" className="inline-flex items-center gap-2 border-b border-[#A67B3E] pb-1 text-sm font-semibold text-[#103B69]">Сургуулийн тухай <ArrowRight size={16}/></Link>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* ====================================
           3. ДӨРВӨН ӨНГӨЛӨГ КАРТ
       ==================================== */}
-      <section className="mx-auto max-w-7xl px-5 py-10 md:px-8">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="relative z-20 mx-auto max-w-7xl px-5 py-16 md:px-8 lg:py-20">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
 
           {quickLinks.map((item) => {
             const Icon = item.icon;
@@ -282,16 +238,16 @@ async function HomeContent() {
               <Link
                 key={item.title}
                 href={item.href}
-                className="group flex min-h-[160px] gap-4 rounded-2xl border border-blue-100 bg-white p-5 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="group flex min-h-[172px] gap-4 border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#CDA45D] hover:shadow-lg"
               >
                 <div
-                  className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-full text-white ${item.color}`}
+                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg text-white ${item.color}`}
                 >
                   <Icon size={30} />
                 </div>
 
                 <div className="flex min-w-0 flex-1 flex-col">
-                  <h2 className="text-lg font-extrabold text-[#07347C]">
+                  <h2 className="text-lg font-bold text-[#103B69]">
                     {item.title}
                   </h2>
 
@@ -301,7 +257,7 @@ async function HomeContent() {
 
                   <ArrowRight
                     size={21}
-                    className="mt-auto self-end text-[#087BFA] transition group-hover:translate-x-1"
+                    className="mt-auto self-end text-[#B18446] transition group-hover:translate-x-1"
                   />
                 </div>
               </Link>
@@ -314,7 +270,7 @@ async function HomeContent() {
       {/* ====================================
           4. ОНЦЛОХ МЭДЭЭ — API 2, API 4
       ==================================== */}
-      <section className="mx-auto max-w-7xl px-5 pb-16 md:px-8">
+      <section className="mx-auto max-w-7xl px-5 pb-24 md:px-8">
         <div className="mb-7 flex flex-wrap items-center justify-between gap-4">
 
           <div>
@@ -342,14 +298,11 @@ async function HomeContent() {
               <Link
                 key={item._id}
                 href={`/news/${item._id}`}
-                className="group overflow-hidden rounded-2xl border border-blue-100 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                className="group overflow-hidden border border-slate-200 bg-white transition hover:-translate-y-1 hover:shadow-lg"
               >
-                {/* Мэдээний дээд хэсэг */}
-                <div className="flex h-36 items-center justify-center bg-gradient-to-br from-[#074293] to-[#1590E8]">
-                  <Newspaper
-                    size={54}
-                    className="text-white/80"
-                  />
+                {/* Мэдээнд зураг холбоогүй үед өөр нийтлэлийн зургийг буруу оноохгүй. */}
+                <div className="flex h-40 items-center justify-center bg-[#123D63]">
+                  <Newspaper size={54} className="text-white/80" />
                 </div>
 
                 <div className="p-6">
@@ -406,12 +359,66 @@ async function HomeContent() {
         )}
       </section>
 
+      {/* public/ хавтсанд оруулсан бодит зурагт сан. Зургийг худал мэдээтэй холбохгүй. */}
+      <section className="bg-[#F6F8FA] px-5 py-20 md:px-8">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs font-bold tracking-[0.2em] text-[#A67B3E]">МАНАЙ ОРЧИН</p>
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-5">
+            <div>
+              <h2 className="mt-2 text-3xl font-semibold tracking-tight text-[#103B69] md:text-4xl">Сургуулийн амьдрал зургаар</h2>
+              <p className="mt-3 text-sm leading-7 text-slate-600">Сургуулийн сайтаас хадгалсан бодит гэрэл зургуудын цуглуулга.</p>
+            </div>
+            <Link href="/news" className="inline-flex items-center gap-2 border-b border-[#B18446] pb-1 text-sm font-bold text-[#103B69]">Мэдээ мэдээлэл <ArrowRight size={16}/></Link>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {[
+              { src: "/grad-scaled-e1705378650270-1024x682.webp", label: "Төгсөлтийн зураг" },
+              { src: "/alsiin.webp", label: "Сургуулийн зургийн сан" },
+              { src: "/news_2026_10_19_173350.webp", label: "Сургуулийн хамт олон" }
+            ].map((photo) => (
+              <figure key={photo.src} className="overflow-hidden bg-white">
+                <img src={photo.src} alt={photo.label} loading="lazy" className="aspect-[4/3] w-full object-cover" />
+                <figcaption className="px-4 py-4 text-sm font-semibold text-[#103B69]">{photo.label}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Мандах зэрэг их сургуулиудын ашиглахад хялбар үйлчилгээний хэсгээс санаа авав. */}
+      <section className="bg-white px-5 py-20 md:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-9 flex flex-wrap items-end justify-between gap-5">
+            <div>
+              <p className="text-xs font-bold tracking-[.2em] text-[#B18446]">ХУРДАН ХОЛБООС</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#103553] md:text-4xl">Танд хэрэгтэй мэдээлэл</h2>
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600">Элсэгч, оюутан, багш, судлаачдад зориулсан мэдээллийг нэг дороос.</p>
+            </div>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {title:"Элсэгчдэд",text:"Элсэлтийн заавар, бүртгэл",href:"/admissions",image:"/admis.webp"},
+              {title:"Оюутнуудад",text:"Номын сан, суралцах орчин",href:"/library",image:"/library.webp"},
+              {title:"Судлаачдад",text:"Эрдэм шинжилгээ, судалгаа",href:"/research",image:"/research.webp"},
+              {title:"Тэнхимүүд",text:"Сургуулийн бүтэц, чиглэлүүд",href:"/schools",image:"/dep_5f8428aa3209d31ae019929a.webp"},
+            ].map(item=>(
+              <Link key={item.href} href={item.href} className="group overflow-hidden border border-slate-200 bg-white transition hover:-translate-y-1 hover:shadow-lg">
+                <div className="flex h-36 items-center justify-center overflow-hidden bg-[#E9F0F5] p-3">
+                  <img src={item.image} alt="" loading="lazy" className="h-full w-full object-contain transition duration-300 group-hover:scale-105"/>
+                </div>
+                <div className="p-6"><h3 className="text-lg font-bold text-[#103553]">{item.title}</h3><p className="mt-2 text-sm leading-6 text-slate-600">{item.text}</p><span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#103553]">Мэдээлэл үзэх <ArrowRight size={16}/></span></div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ====================================
           5. ТООН ҮЗҮҮЛЭЛТ — API 1
       ==================================== */}
       <section
         id="statistics"
-        className="bg-gradient-to-r from-[#E3F1FF] to-[#F0F8FF] px-5 py-14 md:px-8"
+        className="bg-[#F7F8F8] px-5 py-20 md:px-8"
       >
         <div className="mx-auto max-w-7xl">
 
@@ -432,7 +439,7 @@ async function HomeContent() {
               return (
                 <div
                   key={item.label}
-                  className="rounded-2xl border border-blue-100 bg-white p-6 text-center shadow-sm"
+                  className="border border-slate-200 bg-white p-7 text-center"
                 >
                   <Icon
                     size={35}
@@ -462,7 +469,7 @@ async function HomeContent() {
       {/* ====================================
           6. ХИЧЭЭЛИЙН УЛИРАЛ — API 3
       ==================================== */}
-      <section className="bg-[#07347C] px-5 py-14 text-white md:px-8">
+      <section className="bg-gradient-to-r from-[#071B38] to-[#07347C] px-5 py-16 text-white md:px-8">
         <div className="mx-auto max-w-7xl">
 
           <div className="mb-9 text-center">
@@ -501,6 +508,29 @@ async function HomeContent() {
               авахад алдаа гарлаа.
             </p>
           )}
+        </div>
+      </section>
+
+      {/* Оюутны булан: нэмэлт API шаардахгүй, одоо байгаа хуудсууд руу холбоно. */}
+      <section className="bg-white px-5 py-16 md:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-8">
+            <p className="text-sm font-bold tracking-widest text-[#C58B14]">ОЮУТАНД ЗОРИУЛАВ</p>
+            <h2 className="mt-2 text-3xl font-extrabold text-[#07347C]">Оюутны булан</h2>
+            <p className="mt-3 text-slate-600">Хэрэгтэй мэдээлэл, үйлчилгээний холбоосууд.</p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-3">
+            {[
+              { title: "Сургалтын мэдээлэл", description: "Хөтөлбөр болон сургалтын үйл ажиллагаа", href: "/academics", icon: GraduationCap },
+              { title: "Номын сан", description: "Номын сан, цахим эх сурвалжийн мэдээлэл", href: "/library", icon: BookOpen },
+              { title: "Мэдээний архив", description: "Өмнөх он, саруудын мэдээ мэдээлэл", href: "/archive", icon: Newspaper },
+            ].map(({ title, description, href, icon: Icon }) => (
+              <Link key={href} href={href} className="group flex items-start gap-4 rounded-2xl border border-slate-200 bg-[#F8FAFD] p-6 transition hover:border-blue-300 hover:bg-blue-50">
+                <span className="rounded-xl bg-[#07347C] p-3 text-white"><Icon size={24} /></span>
+                <span className="flex-1"><strong className="block text-lg text-[#07347C]">{title}</strong><span className="mt-2 block text-sm leading-6 text-slate-600">{description}</span><span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-blue-700">Үзэх <ArrowRight size={16}/></span></span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

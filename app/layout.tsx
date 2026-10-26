@@ -1,5 +1,6 @@
 
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import "./globals.css";
 
 // Бидний өмнө хийсэн 3 хэсгийг оруулж ирнэ.
@@ -9,8 +10,8 @@ import Footer from "@/components/layout/Footer";
 
 // Browser-ийн tab дээр харагдах нэр
 export const metadata: Metadata = {
-  title: "UNIVERSITY ONE",
-  description: "Их сургуулийн мэдээллийн портал",
+  title: "МУИС-ийн Баруун бүсийн сургууль | Оюутны төсөл",
+  description: "МУИС-ийн Баруун бүсийн сургуулийн мэдээ, сургалт, судалгааны мэдээллийн портал — оюутны бие даалтын төсөл",
 };
 
 // Энэ нь вебийн бүх хуудсыг нэгтгэдэг хэсэг.
@@ -27,7 +28,9 @@ export default function RootLayout({
         <Header />
 
         {/* Вебийн үндсэн цэс */}
-        <Navbar />
+        <Suspense fallback={<div className="h-[67px] bg-[#07347C]" />}>
+          <Navbar />
+        </Suspense>
 
         {/* Нүүр хуудасны агуулга */}
         <main className="min-h-[60vh]">

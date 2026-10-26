@@ -32,7 +32,7 @@ export default function Footer() {
 
           {/* Сургуулийн нэр */}
           <h2 className="text-xl font-bold">
-           МУИС-ийн Баруун бүсийн их сургууль
+           МУИС-ийн Баруун бүсийн сургууль
           </h2>
 
           {/* Сургуулийн танилцуулга */}
@@ -90,7 +90,7 @@ export default function Footer() {
 
             {/* Facebook */}
             <a
-              href="https://www.facebook.com/"
+              href="https://www.facebook.com/MUIS1942"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -101,13 +101,13 @@ export default function Footer() {
 
             {/* Instagram */}
             <a
-              href="https://www.instagram.com/"
+              href="https://news.num.edu.mn/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Instagram"
+              aria-label="МУИС-ийн мэдээ"
               className="hover:text-[#D8A650]"
             >
-              <FaInstagram size={23} />
+              <Mail size={23} />
             </a>
 
             {/* Холбоо барих хуудас */}
@@ -123,7 +123,7 @@ export default function Footer() {
 
           {/* Нэмэлт мэдээлэл */}
           <p className="mt-6 text-sm leading-7 text-slate-300">
-            Бидэнтэй цахим хуудсаар холбогдож,
+            МУИС-ийн төвийн элсэлтийн алба: elselt@num.edu.mn, 7575-4400.\n            Сургуулийн албан ёсны вебээр холбогдож,
             сургуулийн шинэ мэдээ мэдээллийг
             цаг тухайд нь аваарай.
           </p>

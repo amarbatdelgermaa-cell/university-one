@@ -1,3 +1,4 @@
+import { connection } from "next/server";
 
 import { Suspense } from "react";
 import Link from "next/link";
@@ -26,6 +27,7 @@ type Props = {
 
 // API мэдээллийг авч харуулах хэсэг
 async function NewsContent({ searchParams }: Props) {
+  await connection();
   const params = await searchParams;
 
   let categories: Category[] = [];
@@ -74,6 +76,58 @@ async function NewsContent({ searchParams }: Props) {
 
       <div className="mx-auto max-w-6xl px-6 py-10">
 
+        {/* Баруун бүсийн сургуулийн албан ёсны мэдээний эх сурвалж */}
+        <section className="mb-10 flex flex-col gap-5 rounded-xl border border-blue-100 bg-[#EAF1F8] p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+          <div>
+            <p className="text-xs font-bold tracking-widest text-[#A87520]">АЛБАН ЁСНЫ ЭХ СУРВАЛЖ</p>
+            <h2 className="mt-2 text-xl font-bold text-[#123C69]">Баруун бүсийн сургуулийн мэдээнүүд</h2>
+            <p className="mt-2 max-w-xl text-sm leading-6 text-slate-600">Сургуулийн албан ёсны веб дэх мэдээ, зарлал, үйл ажиллагааны нийтлэлүүдийг үзэх.</p>
+          </div>
+          <a href="http://khovd.num.edu.mn:5000/news" target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 items-center justify-center rounded-lg bg-[#123C69] px-5 py-3 font-semibold text-white transition hover:bg-[#1C5C98]">Албан ёсны мэдээ үзэх ↗</a>
+        </section>
+        {/* Хадгалсан бодит зургийн сан — API мэдээний гарчигтай тулгаж оноогоогүй */}
+        <section className="mb-12">
+          <div className="mb-5">
+            <p className="text-xs font-bold tracking-widest text-[#A67B3E]">ГЭРЭЛ ЗУРГИЙН САН</p>
+            <h2 className="mt-2 text-2xl font-bold text-[#123C69]">Сургуулийн мэдээний зургууд</h2>
+            <p className="mt-2 text-sm leading-6 text-slate-600">Албан ёсны сайтаас хадгалсан зургууд. Дэлгэрэнгүй мэдээлэл, гарчгийг баталгаажуулаагүй тул зураг тус бүрийг тодорхой мэдээнд холбож тайлбарлаагүй.</p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              "news_2026_10_19_172910.webp",
+              "news_2026_10_19_173020.webp",
+              "news_2026_10_19_173155.webp",
+              "news_2026_10_19_173350.webp",
+              "news_2026_10_19_173818.webp",
+              "news_2026_10_19_174040.webp",
+              "news_2026_10_19_174240.webp",
+              "news_2026_10_19_174358.webp",
+              "news_2026_9_16_93241.webp",
+            ].map((name, index) => (
+              <figure key={name} className="overflow-hidden border border-slate-200 bg-white">
+                <img src={`/${name}`} alt={`Сургуулийн зургийн сан — ${index + 1}`} loading="lazy" className="aspect-[16/10] w-full object-cover" />
+              </figure>
+            ))}
+          </div>
+        </section>
+        {/* МУИС-ийн албан ёсны сайтаас баталгаажсан нийтлэлүүд */}
+        <section className="mb-12">
+          <h2 className="mb-5 text-2xl font-bold text-[#123C69]">Баруун бүсийн сургуулийн онцлох мэдээ</h2>
+          <div className="grid gap-5 md:grid-cols-3">
+            {[
+              { title: "Баруун бүсийн сургуульд Ном уншлагын танхим нээлээ", date: "2025-09-17", url: "https://news.num.edu.mn/?p=111811", summary: "Номын санг баяжуулах хамтын ажиллагааны хүрээнд жил бүр 100 нэр төрлийн ном хандивлахаар мэдээлжээ." },
+              { title: "Баруун бүсийн сургуульд судалгааны хүрээлэн байгуулах асуудлыг хэлэлцжээ", date: "2026-01-28", url: "https://news.num.edu.mn/?p=113943", summary: "Ректорын зөвлөлийн хурлаар уг асуудлыг дахин хэлэлцэхээр хойшлуулсан." },
+              { title: "Баруун бүсийн сургуульд оюутны хөгжлийн үйлчилгээний өдөрлөг зохион байгуулжээ", date: "2024-12-06", url: "https://news.num.edu.mn/?p=106756", summary: "Оюутны хөгжлийн үйлчилгээний мэдээллийг орон нутгийн салбар сургуулийн суралцагчдад хүргэсэн." },
+            ].map((item) => (
+              <a key={item.url} href={item.url} target="_blank" rel="noopener noreferrer" className="rounded-xl border border-slate-200 bg-white p-6 transition hover:border-blue-300 hover:shadow-lg">
+                <p className="text-xs text-slate-500">{item.date}</p>
+                <h3 className="mt-3 text-lg font-bold leading-7 text-[#123C69]">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{item.summary}</p>
+                <span className="mt-5 inline-block font-semibold text-blue-800">Эх сурвалжийг нээх →</span>
+              </a>
+            ))}
+          </div>
+        </section>
         {/* API 2: Мэдээний ангиллууд */}
         <h2 className="mb-5 text-xl font-bold text-gray-900">
           Мэдээний ангилал
