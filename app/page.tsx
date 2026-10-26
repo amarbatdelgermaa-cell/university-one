@@ -300,13 +300,8 @@ async function HomeContent() {
                 href={`/news/${item._id}`}
                 className="group overflow-hidden border border-slate-200 bg-white transition hover:-translate-y-1 hover:shadow-lg"
               >
-                {/* Мэдээний дээд хэсэг */}
-                <div className="flex h-40 items-center justify-center bg-[#123D63]">
-                  <Newspaper
-                    size={54}
-                    className="text-white/80"
-                  />
-                </div>
+                {/* GitHub public хавтсанд байгаа бодит мэдээний зургууд */}
+                <img src={`/news_2026_10_19_${["172910","173020","173155"][news.findIndex(n => n._id === item._id) % 3]}.webp`} alt="Сургуулийн мэдээний гэрэл зураг" className="h-40 w-full object-cover" loading="lazy" />
 
                 <div className="p-6">
                   <div className="mb-3 flex items-center gap-2 text-xs text-slate-500">
